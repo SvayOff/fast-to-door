@@ -1,13 +1,15 @@
 import Header from '../components/Header';
+import MainScreen from '../components/MainScreen';
 import styles from './Home.scss';
 
 const Home = () => {
   return (
-    <section className="home">
+    <div className="home">
       <div className="home__main">
         <Header />
+        <MainScreen />
       </div>
-    </section>
+    </div>
   );
 };
 
