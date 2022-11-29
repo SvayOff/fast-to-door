@@ -1,3 +1,4 @@
+@import "./variables";
 html {
     box-sizing: border-box;
 }
@@ -15,12 +16,18 @@ body {
 a {
     display: inline-block;
     text-decoration: none;
+    color: $dark;
 }
 ul,
 li {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+body {
+    font-size: 15px;
+    font-weight: 400;
+    background-color: $dark;
 }
 .wrapper {
     display: flex;

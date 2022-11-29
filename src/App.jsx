@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import './libs/_vars.scss';
+import './libs/_variables.scss';
 import Home from './pages/Home';
 
 function App() {
