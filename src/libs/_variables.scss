@@ -6,6 +6,10 @@ $light: #f4f4ec;
   font-family: "Inter", sans-serif;
   font-weight: 400;
 }
+@mixin f500 {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}
 @mixin f600 {
   font-family: "Inter", sans-serif;
   font-weight: 600;

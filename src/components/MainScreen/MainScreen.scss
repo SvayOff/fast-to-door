@@ -80,6 +80,9 @@
       line-height: 140%;
     }
   }
+  &__block-first {
+    margin-bottom: 25px;
+  }
   &__block-second {
     display: flex;
     justify-content: space-between;

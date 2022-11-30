@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import MainScreen from '../components/MainScreen';
+import Slider from '../components/Slider';
 import styles from './Home.scss';
 
 const Home = () => {
@@ -9,6 +10,7 @@ const Home = () => {
         <Header />
         <MainScreen />
       </div>
+      <Slider />
     </div>
   );
 };
