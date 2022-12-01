@@ -2,6 +2,7 @@ import Header from '../components/Header';
 import MainScreen from '../components/MainScreen';
 import Slider from '../components/Slider';
 import Dialog from '../components/Dialog';
+import Products from '../components/Products';
 import styles from './Home.scss';
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
       </div>
       <Slider />
       <Dialog />
+      <Products />
     </div>
   );
 };

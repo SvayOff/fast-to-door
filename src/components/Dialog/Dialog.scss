@@ -1,13 +1,16 @@
 @import "../../libs/variables";
 
 .dialog {
+  position: relative;
+  z-index: 2;
   background-image: url(../../../public/images/backgrounds/Background_2.png);
-  background-position: top;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  object-fit: cover;
   &__inner {
     display: flex;
-    padding: 400px 0 300px;
+    padding: 400px 0 420px;
     justify-content: space-between;
     align-items: center;
     @include fc400;
@@ -21,8 +24,6 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-    }
-    &-plantation {
     }
     &-ananas {
       position: absolute;
