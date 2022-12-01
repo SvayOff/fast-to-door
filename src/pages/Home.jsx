@@ -3,6 +3,7 @@ import MainScreen from '../components/MainScreen';
 import Slider from '../components/Slider';
 import Dialog from '../components/Dialog';
 import Products from '../components/Products';
+import Gallery from '../components/Gallery';
 import styles from './Home.scss';
 
 const Home = () => {
@@ -15,6 +16,7 @@ const Home = () => {
       <Slider />
       <Dialog />
       <Products />
+      <Gallery />
     </div>
   );
 };
