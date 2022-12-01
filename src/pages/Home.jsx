@@ -5,6 +5,7 @@ import Dialog from '../components/Dialog';
 import Products from '../components/Products';
 import Gallery from '../components/Gallery';
 import Application from '../components/Application';
+import About from '../components/About';
 import styles from './Home.scss';
 
 const Home = () => {
@@ -19,6 +20,7 @@ const Home = () => {
       <Products />
       <Gallery />
       <Application />
+      <About />
     </div>
   );
 };

@@ -1,0 +1,71 @@
+@import "../../libs/variables";
+
+.about {
+  &__inner {
+    padding: 200px 0;
+  }
+  &__title {
+    margin-bottom: 110px;
+    @include f900;
+    font-size: 36px;
+    line-height: 146%;
+    letter-spacing: 0.06em;
+    color: #000;
+    text-shadow: 1px 1px 0 $light, -1px -1px 0 $light, 1px -1px 0 $light, -1px 1px 0 $light, 1px 1px 0 $light;
+    margin-bottom: 100px;
+  }
+  &__content {
+    &-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    &-years {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+      margin-bottom: 100px;
+      max-width: 315px;
+      width: 100%;
+      span {
+        font-size: 34px;
+        letter-spacing: 0.06em;
+        color: #000;
+        text-shadow: 1px 1px 0 $light, -1px -1px 0 $light, 1px -1px 0 $light, -1px 1px 0 $light, 1px 1px 0 $light;
+        opacity: 0.2;
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+    &-desc {
+      font-size: 22px;
+      line-height: 188%;
+      max-width: 875px;
+      width: 100%;
+      color: $light;
+      margin-left: 80px;
+      transform: translateY(-3px);
+    }
+    &-image {
+      transform: translateY(20px);
+      margin-top: -30px;
+    }
+    &-block--big {
+      .about__content-years {
+        display: block;
+      }
+      span {
+        font-size: 133px;
+        line-height: 78%;
+        opacity: 1;
+        color: #000;
+        text-shadow: 1px 1px 0 $light, -1px -1px 0 $light, 1px -1px 0 $light, -1px 1px 0 $light, 1px 1px 0 $light;
+      }
+      .about__content-desc {
+        margin-top: -7px;
+      }
+    }
+  }
+}
