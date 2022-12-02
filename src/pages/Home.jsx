@@ -7,6 +7,7 @@ import Gallery from '../components/Gallery';
 import Application from '../components/Application';
 import About from '../components/About';
 import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 import styles from './Home.scss';
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
       <Application />
       <About />
       <Contact />
+      <Footer />
     </div>
   );
 };
