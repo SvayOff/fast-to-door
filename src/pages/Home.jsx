@@ -6,6 +6,7 @@ import Products from '../components/Products';
 import Gallery from '../components/Gallery';
 import Application from '../components/Application';
 import About from '../components/About';
+import Contact from '../components/Contact';
 import styles from './Home.scss';
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
       <Gallery />
       <Application />
       <About />
+      <Contact />
     </div>
   );
 };
