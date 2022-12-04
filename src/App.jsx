@@ -1,13 +1,10 @@
 import React from 'react';
-import './App.scss';
-import './libs/_variables.scss';
 import Home from './pages/Home';
-import Cart from './pages/Cart';
+import styles from './libs/style.scss';
 function App() {
   return (
     <div className="wrapper">
       <Home />
-      <Cart />
     </div>
   );
 }

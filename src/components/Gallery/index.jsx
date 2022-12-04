@@ -1,4 +1,4 @@
-import styles from './Gallery.scss';
+import styles from '../../libs/style.scss';
 
 const Gallery = () => {
   return (

@@ -1,4 +1,4 @@
-import styles from './Contact.scss';
+import styles from '../../libs/style.scss';
 
 const Contact = () => {
   return (

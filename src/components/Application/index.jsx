@@ -1,4 +1,4 @@
-import style from './Application.scss';
+import styles from '../../libs/style.scss';
 
 const Application = () => {
   return (

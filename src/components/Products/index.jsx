@@ -1,4 +1,5 @@
-import style from './Products.scss';
+import styles from '../../libs/style.scss';
+
 const Products = () => {
   return (
     <section className="products">

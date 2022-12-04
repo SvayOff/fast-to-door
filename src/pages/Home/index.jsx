@@ -8,12 +8,13 @@ import Application from '../../components/Application';
 import About from '../../components/About';
 import Contact from '../../components/Contact';
 import Footer from '../../components/Footer';
-import styles from './Home.scss';
+import Cart from '../../components/Cart';
+import styles from '../../libs/style.scss';
 
 const Home = () => {
   return (
     <div className="home">
-      <div className='content'>
+      <div className="content">
         <div className="home__main">
           <Header />
           <MainScreen />
@@ -25,6 +26,7 @@ const Home = () => {
         <Application />
         <About />
         <Contact />
+        <Cart />
       </div>
       <Footer />
     </div>

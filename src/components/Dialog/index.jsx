@@ -1,4 +1,4 @@
-import style from './Dialog.scss';
+import styles from '../../libs/style.scss';
 
 const Dialog = () => {
   return (

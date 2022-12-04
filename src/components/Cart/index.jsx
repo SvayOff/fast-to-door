@@ -1,4 +1,4 @@
-import styles from './Cart.scss';
+import styles from '../../libs/style.scss';
 
 const Cart = () => {
   return (
@@ -6,6 +6,9 @@ const Cart = () => {
       <div className="cart__background">
         <div className="container">
           <div className="cart__inner">
+            <button className="cart__inner-close">
+              <img src="./images/icons/close.png" alt="close" />
+            </button>
             <div className="cart__products">
               <h2 className="cart__products-title cart__title">Cart</h2>
               <div className="cart__products-box">

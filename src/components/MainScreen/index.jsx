@@ -1,4 +1,4 @@
-import styles from './MainScreen.scss';
+import styles from '../../libs/style.scss';
 
 const MainScreen = () => {
   return (
