@@ -38,7 +38,7 @@ const MainScreen = () => {
             <div className="main__block-img">
               <img src="./images/main/pineapple-fruit.png" alt="pineapple-fruit" />
             </div>
-            <div className="main__block-col">
+            <div className="main__block-col block-col__delivery">
               <p className="main__block-text">Our delivery is better than competitors on</p>
               <h2 className="main__block-count">100%</h2>
               <p className="main__block-desc">

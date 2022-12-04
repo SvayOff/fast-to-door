@@ -47,6 +47,7 @@
       position: relative;
       width: 36px;
       height: 36px;
+      z-index: 10;
       border: 1.2px solid $dark;
       border-radius: 50%;
       cursor: pointer;
@@ -89,10 +90,10 @@
       height: 100%;
       left: 0%;
       top: 0px;
+      z-index: 3;
       opacity: 1;
       transition: all 0.5s ease;
     }
-    
   }
 
   &__cart {

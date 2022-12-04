@@ -17,7 +17,7 @@ const Home = () => {
       <div className="content">
         <div className="home__main">
           <Header />
-          {/* <MainScreen /> */}
+          <MainScreen />
         </div>
         {/* <Slider />
         <Dialog />
