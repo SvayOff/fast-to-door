@@ -17,18 +17,18 @@ const Home = () => {
       <div className="content">
         <div className="home__main">
           <Header />
-          <MainScreen />
+          {/* <MainScreen /> */}
         </div>
-        <Slider />
+        {/* <Slider />
         <Dialog />
         <Products />
         <Gallery />
         <Application />
         <About />
         <Contact />
-        <Cart />
+        <Cart /> */}
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
