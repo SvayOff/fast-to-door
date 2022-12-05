@@ -363,6 +363,11 @@
     width: 100%;
     padding: 17px 20px 17px 0;
     margin-right: 40px;
+
+    &-plantation {
+      max-width: 690px;
+      width: 100%;
+    }
     img {
       background-repeat: no-repeat;
       background-size: cover;
@@ -379,9 +384,10 @@
     background-image: url(../../public/images/dialog/table.png);
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
-    width: 495px;
-    height: 73px;
+    background-size: contain;
+    max-width: 495px;
+    width: 100%;
+    height: auto;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);

@@ -20,8 +20,8 @@ const Home = () => {
           <MainScreen />
         </div>
         <Slider />
-        {/* <Dialog />
-        <Products />
+        <Dialog />
+        {/*<Products />
         <Gallery />
         <Application />
         <About />
