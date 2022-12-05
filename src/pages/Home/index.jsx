@@ -19,8 +19,8 @@ const Home = () => {
           <Header />
           <MainScreen />
         </div>
-        {/* <Slider />
-        <Dialog />
+        <Slider />
+        {/* <Dialog />
         <Products />
         <Gallery />
         <Application />
