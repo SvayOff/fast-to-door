@@ -22,10 +22,10 @@ const Home = () => {
         <Slider />
         <Dialog />
         <Products />
-        {/*<Gallery />
+        <Gallery />
         <Application />
         <About />
-        <Contact />
+        {/*<Contact />
         <Cart /> */}
       </div>
       {/* <Footer /> */}
