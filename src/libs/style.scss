@@ -478,7 +478,6 @@
   &__items {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(2, 1fr);
     gap: 35px;
     margin-bottom: 40px;
   }
@@ -487,7 +486,8 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: 251px;
+    max-width: 251px;
+    width: 100%;
     height: auto;
     z-index: 3;
     &::before {
@@ -536,7 +536,8 @@
       background-repeat: no-repeat;
       background-position: bottom;
       background-size: cover;
-      max-width: 220px;
+      max-width: 160px;
+      width: 100%;
       bottom: 40px;
       z-index: -1;
       left: 50%;

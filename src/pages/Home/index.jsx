@@ -21,8 +21,8 @@ const Home = () => {
         </div>
         <Slider />
         <Dialog />
-        {/*<Products />
-        <Gallery />
+        <Products />
+        {/*<Gallery />
         <Application />
         <About />
         <Contact />
