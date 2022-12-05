@@ -766,6 +766,60 @@
       }
     }
   }
+  &__adaptive {
+    display: none;
+    &-years {
+      display: flex;
+      margin-bottom: 100px;
+      min-height: 40px;
+      max-width: 100%;
+      width: 100%;
+      overflow-x: scroll;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        // width: 0;
+        height: 0;
+      }
+      span {
+        font-size: 34px;
+        letter-spacing: 0.06em;
+        color: #000;
+        text-shadow: 1px 1px 0 $light, -1px -1px 0 $light, 1px -1px 0 $light, -1px 1px 0 $light, 1px 1px 0 $light;
+        opacity: 0.2;
+        white-space: nowrap;
+        cursor: pointer;
+        & + span {
+          margin-left: 30px;
+        }
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+    &-descriptions {
+      max-width: 875px;
+      width: 100%;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+    &-inner {
+      width: 100%;
+      display: -webkit-box;
+    }
+    &-desc {
+      font-size: 22px;
+      line-height: 188%;
+      max-width: 875px;
+      width: 100%;
+      color: $light;
+      transform: translateY(-3px);
+    }
+    &-image {
+      transform: translateY(23px);
+      margin-top: -33px;
+    }
+  }
 }
 
 // Contact
