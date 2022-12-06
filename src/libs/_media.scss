@@ -178,6 +178,18 @@
   .application__inner {
     padding: 400px 0 100px;
   }
+  .about__content {
+    display: none;
+  }
+  .about__adaptive {
+    display: block;
+  }
+  .about__adaptive-years {
+    margin-bottom: 50px;
+  }
+  .about__inner {
+    padding: 100px 0 50px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -293,6 +305,10 @@
   }
   .application__content-desc {
     font-size: 16px;
+  }
+  .about__title {
+    font-size: 32px;
+    margin-bottom: 50px;
   }
 }
 
@@ -436,6 +452,9 @@
   }
   .products__items {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .about__adaptive-desc {
+    font-size: 20px;
   }
 }
 
