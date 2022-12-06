@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Header from '../../components/Header';
 import MainScreen from '../../components/MainScreen';
 import Slider from '../../components/Slider';
@@ -9,14 +11,19 @@ import About from '../../components/About';
 import Contact from '../../components/Contact';
 import Footer from '../../components/Footer';
 import Cart from '../../components/Cart';
+
 import styles from '../../libs/style.scss';
 
 const Home = () => {
+  const [cartActiveClass, setCartActiveClass] = React.useState('');
+
+  console.log(cartActiveClass);
+
   return (
     <div className="home">
       <div className="content">
         <div className="home__main">
-          <Header />
+          <Header setCartActiveClass={setCartActiveClass} />
           <MainScreen />
         </div>
         <Slider />
@@ -26,7 +33,7 @@ const Home = () => {
         <Application />
         <About />
         <Contact />
-        {/*<Cart /> */}
+        <Cart cartActiveClass={cartActiveClass} setCartActiveClass={setCartActiveClass} />
       </div>
       <Footer />
     </div>

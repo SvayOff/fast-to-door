@@ -1,7 +1,8 @@
 import React from 'react';
+
 import styles from '../../libs/style.scss';
 
-const Header = () => {
+const Header = ({ setCartActiveClass }) => {
   const [activeClass, setActiveClass] = React.useState('');
 
   const toggleActiveClass = () => {
@@ -97,7 +98,7 @@ const Header = () => {
             </div>
           </nav>
 
-          <a href="#" className="header__cart">
+          <a href="#" className="header__cart" onClick={() => setCartActiveClass('active')}>
             <svg
               className="header__cart-img"
               width="20"
