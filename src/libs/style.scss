@@ -849,7 +849,8 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 410px;
+    max-width: 420px;
+    width: 100%;
     margin-right: 30px;
     padding: 0 45px;
     &-title {
@@ -948,13 +949,20 @@
     margin-top: -50px;
     margin-bottom: 40px;
   }
+  &__logo {
+    margin-right: 35px;
+    min-width: 59px;
+    min-height: 36px;
+  }
   &__menu {
     display: flex;
+    flex-wrap: wrap;
     li + li {
       margin-left: 56px;
     }
     a {
       color: $light;
+      white-space: nowrap;
     }
   }
 }

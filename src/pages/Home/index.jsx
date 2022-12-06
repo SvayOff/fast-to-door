@@ -25,10 +25,10 @@ const Home = () => {
         <Gallery />
         <Application />
         <About />
-        {/*<Contact />
-        <Cart /> */}
+        <Contact />
+        {/*<Cart /> */}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
