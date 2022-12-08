@@ -1,12 +1,12 @@
 import styles from '../../libs/style.scss';
 
-const Product = ({ imgUrl, price, weight }) => {
+const Product = ({ setCartProducts, product }) => {
   return (
     <div className="products__item">
       <img className="products__item-package" src="./images/products/package.png" alt="package" />
       <img className="products__item-union" src="./images/products/union.png" alt="union" />
       <img className="products__item-pin" src="./images/icons/pin.png" alt="pin" />
-      <button className="products__item-cart" type="button">
+      <button className="products__item-cart" type="button" onClick={() => {}}>
         <svg
           width="20"
           height="20"
@@ -27,9 +27,9 @@ const Product = ({ imgUrl, price, weight }) => {
           />
         </svg>
       </button>
-      <img className="products__item-fruit" src={imgUrl} alt="product" />
+      <img className="products__item-fruit" src={product.imgUrl} alt="product" />
       <div className="products__item-info">
-        {price} $ / pc ({weight})
+        {product.price} $ / pc ({product.weight})
       </div>
     </div>
   );

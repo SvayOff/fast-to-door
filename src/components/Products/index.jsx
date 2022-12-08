@@ -1,7 +1,7 @@
 import Product from '../Product';
 import styles from '../../libs/style.scss';
 
-const Products = ({ products }) => {
+const Products = ({ products, setCartProducts }) => {
   return (
     <section className="products">
       <div className="container">
@@ -10,12 +10,7 @@ const Products = ({ products }) => {
           <div className="products__items">
             {products.map((product) => {
               return (
-                <Product
-                  key={product.id}
-                  imgUrl={product.imgUrl}
-                  price={product.price}
-                  weight={product.weight}
-                />
+                <Product key={product.id} setCartProducts={setCartProducts} product={product} />
               );
             })}
           </div>

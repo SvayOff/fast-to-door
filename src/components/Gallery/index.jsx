@@ -9,7 +9,7 @@ const Gallery = ({ cards }) => {
           <div className="gallery__title">Gallery</div>
           <div className="gallery__items">
             {cards.map((card) => {
-              return <Card key={card.id} imgUrl={card.imgUrl} desc={card.desc} date={card.date} />;
+              return <Card key={card.id} card={card} />;
             })}
           </div>
         </div>
