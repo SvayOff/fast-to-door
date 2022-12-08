@@ -1,0 +1,58 @@
+[
+  {
+    "titleProduct" : "Kivano",
+    "img": "./images/products/product_1.png",
+    "pieces" : 1,
+    "weight": "150g",
+    "price" : 2
+  },
+  {
+    "titleProduct" : "Avocado",
+    "img": "./images/products/product_2.png",
+    "pieces" : 1,
+    "weight": "50g",
+    "price" : 1.20
+  },
+  {
+    "titleProduct" : "Mangosteen",
+    "img": "./images/products/product_3.png",
+    "pieces" : 1,
+    "weight": "200g",
+    "price" : 1.20
+  },
+  {
+    "titleProduct" : "Pitahaya",
+    "img": "./images/products/product_4.png",
+    "pieces" : 1,
+    "weight": "200kg",
+    "price" : 1
+  },
+  {
+    "titleProduct" : "Salak",
+    "img": "./images/products/product_5.png",
+    "pieces" : 1,
+    "weight": "80g",
+    "price" : 1.60
+  },
+  {
+    "titleProduct" : "Papaya",
+    "img": "./images/products/product_6.png",
+    "pieces" : 1,
+    "weight": "1.2kg",
+    "price" : 3.12
+  },
+  {
+    "titleProduct" : "Pomelo",
+    "img": "./images/products/product_7.png",
+    "pieces" : 1,
+    "weight": "120g",
+    "price" : 1.42
+  },
+  {
+    "titleProduct" : "Pineapple",
+    "img": "./images/products/product_8.png",
+    "pieces" : 1,
+    "weight": "1.2kg",
+    "price" : 3.12
+  }
+]

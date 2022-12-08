@@ -17,7 +17,27 @@ import styles from '../../libs/style.scss';
 const Home = () => {
   const [cartActiveClass, setCartActiveClass] = React.useState('');
 
-  console.log(cartActiveClass);
+  const [products, setProducts] = React.useState([]);
+
+  const [cards, setCards] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/products')
+      .then((response) => {
+        return response.json();
+      })
+      .then((products) => {
+        setProducts(products);
+      });
+
+    fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/cards')
+      .then((response) => {
+        return response.json();
+      })
+      .then((cards) => {
+        setCards(cards);
+      });
+  }, []);
 
   return (
     <div className="home">
@@ -28,8 +48,8 @@ const Home = () => {
         </div>
         <Slider />
         <Dialog />
-        <Products />
-        <Gallery />
+        <Products products={products} />
+        <Gallery cards={cards} />
         <Application />
         <About />
         <Contact />
