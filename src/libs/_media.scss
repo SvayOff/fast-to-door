@@ -55,6 +55,9 @@
   .cart__product-count {
     margin: 0 12px;
   }
+  .cart__product::before {
+    min-height: 352px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -329,7 +332,17 @@
   }
   .products__title {
     font-size: 32px;
-    padding-bottom: 50px;
+    margin-bottom: 30px;
+  }
+  .products__top {
+    flex-direction: column;
+    margin-bottom: 50px;
+    padding: 12px 10px;
+    font-size: 16px;
+    margin: 0 auto 50px;
+  }
+  .products__input {
+    margin-left: 50%;
   }
   .products__items {
     grid-template-columns: repeat(2, 1fr);

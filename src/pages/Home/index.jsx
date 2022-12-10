@@ -24,7 +24,12 @@ const Home = () => {
   const [cartProducts, setCartProducts] = React.useState([]);
 
   React.useEffect(() => {
-    fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/products')
+    fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/products', {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    })
       .then((response) => {
         return response.json();
       })
@@ -32,22 +37,21 @@ const Home = () => {
         setProducts(products);
       });
 
-    fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/cards')
+    fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/cards', {
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+    })
       .then((response) => {
         return response.json();
       })
       .then((cards) => {
         setCards(cards);
       });
+  }, []);
 
-    fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/cart')
-      .then((response) => {
-        return response.json();
-      })
-      .then((products) => {
-        setCartProducts(products);
-      });
-  }, [cartProducts]);
+  console.log(cartProducts);
 
   return (
     <div className="home">
@@ -61,7 +65,11 @@ const Home = () => {
 
         <Dialog />
 
-        <Products products={products} setCartProducts={setCartProducts} />
+        <Products
+          products={products}
+          cartProducts={cartProducts}
+          setCartProducts={setCartProducts}
+        />
 
         <Gallery cards={cards} />
 

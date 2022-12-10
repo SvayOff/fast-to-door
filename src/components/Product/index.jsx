@@ -1,12 +1,21 @@
 import styles from '../../libs/style.scss';
 
-const Product = ({ setCartProducts, product }) => {
+const Product = ({ cartProducts, setCartProducts, product }) => {
+
+  const addToCart = () => {
+    setCartProducts()
+  };
   return (
     <div className="products__item">
       <img className="products__item-package" src="./images/products/package.png" alt="package" />
       <img className="products__item-union" src="./images/products/union.png" alt="union" />
       <img className="products__item-pin" src="./images/icons/pin.png" alt="pin" />
-      <button className="products__item-cart" type="button" onClick={() => {}}>
+      <button
+        className="products__item-cart"
+        type="button"
+        onClick={() => {
+          setCartProducts(product);
+        }}>
         <svg
           width="20"
           height="20"

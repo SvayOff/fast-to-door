@@ -470,12 +470,32 @@
   &__inner {
     padding: 330px 0;
   }
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
+  }
   &__title {
     font-size: 36px;
     line-height: 146%;
     text-align: center;
     @include f900;
-    padding-bottom: 100px;
+  }
+  &__search {
+    padding: 15px 10px;
+    border-radius: 10px;
+    border: 1px solid rgba($color: $dark, $alpha: 0.5);
+    font-size: 18px;
+    outline: none;
+    max-width: 300px;
+    width: 100%;
+    &::placeholder {
+      color: rgba($color: $dark, $alpha: 0.5);
+    }
+    &:focus {
+      box-shadow: 0 0px 10px 1px rgba($color: $dark, $alpha: 0.2);
+    }
   }
   &__items {
     display: grid;
@@ -1028,6 +1048,7 @@
     font-size: 36px;
     margin-bottom: 35px;
   }
+
   &__product {
     position: relative;
     background-position: center;
@@ -1045,7 +1066,7 @@
       z-index: -1;
       background-color: rgba(250, 250, 242, 1);
       width: 100%;
-      min-height: 351px;
+      min-height: 350px;
     }
 
     &-package {

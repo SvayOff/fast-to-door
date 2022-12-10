@@ -1,16 +1,24 @@
 import Product from '../Product';
 import styles from '../../libs/style.scss';
 
-const Products = ({ products, setCartProducts }) => {
+const Products = ({ products, cartProducts, setCartProducts }) => {
   return (
     <section className="products">
       <div className="container">
         <div className="products__inner">
-          <h2 className="products__title">Our products</h2>
+          <div className="products__top">
+            <h2 className="products__title">Our products</h2>
+            <input className="products__search" type="text" placeholder="Search..." />
+          </div>
           <div className="products__items">
             {products.map((product) => {
               return (
-                <Product key={product.id} setCartProducts={setCartProducts} product={product} />
+                <Product
+                  key={product.id}
+                  cartProducts={cartProducts}
+                  setCartProducts={setCartProducts}
+                  product={product}
+                />
               );
             })}
           </div>

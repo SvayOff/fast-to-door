@@ -12,7 +12,7 @@ const Cart = ({ cartActiveClass, setCartActiveClass, cartProducts }) => {
             <div className="cart__products">
               <h2 className="cart__products-title cart__title">Cart</h2>
               <div className="cart__products-box">
-                {cartProducts.map((product) => {
+                {/* {cartProducts.map((product) => {
                   return (
                     <div className="cart__product">
                       <img
@@ -107,7 +107,7 @@ const Cart = ({ cartActiveClass, setCartActiveClass, cartProducts }) => {
                       </div>
                     </div>
                   );
-                })}
+                })} */}
 
                 {/* <div className="cart__product">
                   <img
