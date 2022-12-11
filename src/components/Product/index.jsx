@@ -1,10 +1,6 @@
 import styles from '../../libs/style.scss';
 
 const Product = ({ cartProducts, setCartProducts, product }) => {
-
-  const addToCart = () => {
-    setCartProducts()
-  };
   return (
     <div className="products__item">
       <img className="products__item-package" src="./images/products/package.png" alt="package" />
@@ -13,9 +9,7 @@ const Product = ({ cartProducts, setCartProducts, product }) => {
       <button
         className="products__item-cart"
         type="button"
-        onClick={() => {
-          setCartProducts(product);
-        }}>
+        onClick={() => setCartProducts((cartProducts) => [...cartProducts, product])}>
         <svg
           width="20"
           height="20"
