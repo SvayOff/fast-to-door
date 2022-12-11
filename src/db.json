@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "titleProduct" : "Kivano",
     "img": "./images/products/product_1.png",
     "pieces" : 1,
@@ -7,6 +8,7 @@
     "price" : 2
   },
   {
+    "id": 2,
     "titleProduct" : "Avocado",
     "img": "./images/products/product_2.png",
     "pieces" : 1,
@@ -14,6 +16,7 @@
     "price" : 1.20
   },
   {
+    "id": 3,
     "titleProduct" : "Mangosteen",
     "img": "./images/products/product_3.png",
     "pieces" : 1,
@@ -21,6 +24,7 @@
     "price" : 1.20
   },
   {
+    "id": 4,
     "titleProduct" : "Pitahaya",
     "img": "./images/products/product_4.png",
     "pieces" : 1,
@@ -28,6 +32,7 @@
     "price" : 1
   },
   {
+    "id": 5,
     "titleProduct" : "Salak",
     "img": "./images/products/product_5.png",
     "pieces" : 1,
@@ -35,6 +40,7 @@
     "price" : 1.60
   },
   {
+    "id": 6,
     "titleProduct" : "Papaya",
     "img": "./images/products/product_6.png",
     "pieces" : 1,
@@ -42,6 +48,7 @@
     "price" : 3.12
   },
   {
+    "id": 7,
     "titleProduct" : "Pomelo",
     "img": "./images/products/product_7.png",
     "pieces" : 1,
@@ -49,6 +56,7 @@
     "price" : 1.42
   },
   {
+    "id": 8,
     "titleProduct" : "Pineapple",
     "img": "./images/products/product_8.png",
     "pieces" : 1,
@@ -56,3 +64,4 @@
     "price" : 3.12
   }
 ]
+

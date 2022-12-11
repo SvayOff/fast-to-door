@@ -51,8 +51,6 @@ const Home = () => {
       });
   }, []);
 
-  console.log(cartProducts);
-
   return (
     <div className="home">
       <div className="content">

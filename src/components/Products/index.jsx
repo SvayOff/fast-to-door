@@ -1,4 +1,6 @@
+import React from 'react';
 import Product from '../Product';
+
 import styles from '../../libs/style.scss';
 
 const Products = ({ products, cartProducts, setCartProducts }) => {
