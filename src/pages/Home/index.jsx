@@ -22,15 +22,16 @@ const Home = () => {
   const [cards, setCards] = React.useState([]);
 
   const [cartProducts, setCartProducts] = React.useState([]);
+  console.log(cartProducts);
 
   const [searchValue, setSearchValue] = React.useState('');
-  console.log(searchValue);
+
+  const [loadingSkeleton, setLoadingSkeleton] = React.useState(true);
 
   const search = searchValue ? `search=${searchValue}` : '';
 
-  console.log(products);
-
   React.useEffect(() => {
+    setLoadingSkeleton(true);
     fetch(`https://638f959f9cbdb0dbe32c1137.mockapi.io/products?${search}`, {
       headers: {
         'Content-Type': 'application/json',
@@ -41,6 +42,7 @@ const Home = () => {
         return response.json();
       })
       .then((products) => {
+        setLoadingSkeleton(false);
         setProducts(products);
       });
 
@@ -76,6 +78,7 @@ const Home = () => {
           setCartProducts={setCartProducts}
           searchValue={searchValue}
           setSearchValue={setSearchValue}
+          loadingSkeleton={loadingSkeleton}
         />
 
         <Gallery cards={cards} />
