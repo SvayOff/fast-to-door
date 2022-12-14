@@ -6,7 +6,6 @@ import styles from '../../libs/style.scss';
 
 const Products = ({
   products,
-  cartProducts,
   setCartProducts,
   searchValue,
   setSearchValue,
@@ -20,14 +19,7 @@ const Products = ({
       return false;
     })
     .map((product) => {
-      return (
-        <Product
-          key={product.id}
-          cartProducts={cartProducts}
-          setCartProducts={setCartProducts}
-          product={product}
-        />
-      );
+      return <Product key={product.id} setCartProducts={setCartProducts} product={product} />;
     });
 
   const skeletonProducts = [...new Array(8)].map((_, index) => {

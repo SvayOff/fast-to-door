@@ -1,15 +1,24 @@
 import styles from '../../libs/style.scss';
 
-const Product = ({ cartProducts, setCartProducts, product }) => {
+const Product = ({ setCartProducts, product }) => {
+  const addToCart = (product) => {
+    fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/cart', {
+      method: 'POST',
+      body: JSON.stringify(product),
+      headers: {
+        'Content-type': 'application/json',
+      },
+    });
+
+    setCartProducts((cartProducts) => [...cartProducts, product]);
+  };
+
   return (
     <div className="products__item">
       <img className="products__item-package" src="./images/products/package.png" alt="package" />
       <img className="products__item-union" src="./images/products/union.png" alt="union" />
       <img className="products__item-pin" src="./images/icons/pin.png" alt="pin" />
-      <button
-        className="products__item-cart"
-        type="button"
-        onClick={() => setCartProducts((cartProducts) => [...cartProducts, product])}>
+      <button className="products__item-cart" type="button" onClick={() => addToCart(product)}>
         <svg
           width="20"
           height="20"

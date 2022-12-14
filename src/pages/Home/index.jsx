@@ -22,7 +22,6 @@ const Home = () => {
   const [cards, setCards] = React.useState([]);
 
   const [cartProducts, setCartProducts] = React.useState([]);
-  console.log(cartProducts);
 
   const [searchValue, setSearchValue] = React.useState('');
 
@@ -32,15 +31,14 @@ const Home = () => {
 
   React.useEffect(() => {
     setLoadingSkeleton(true);
+
     fetch(`https://638f959f9cbdb0dbe32c1137.mockapi.io/products?${search}`, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
       },
     })
-      .then((response) => {
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((products) => {
         setLoadingSkeleton(false);
         setProducts(products);
@@ -52,12 +50,12 @@ const Home = () => {
         Accept: 'application/json',
       },
     })
-      .then((response) => {
-        return response.json();
-      })
-      .then((cards) => {
-        setCards(cards);
-      });
+      .then((response) => response.json())
+      .then((cards) => setCards(cards));
+
+    fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/cart')
+      .then((response) => response.json())
+      .then((cartProducts) => setCartProducts(cartProducts));
   }, []);
 
   return (
@@ -74,7 +72,6 @@ const Home = () => {
 
         <Products
           products={products}
-          cartProducts={cartProducts}
           setCartProducts={setCartProducts}
           searchValue={searchValue}
           setSearchValue={setSearchValue}
