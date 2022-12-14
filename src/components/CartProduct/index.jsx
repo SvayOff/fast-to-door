@@ -1,12 +1,26 @@
 import styles from '../../libs/style.scss';
 
-const CartProduct = ({ product }) => {
+const CartProduct = ({ product, cartProducts, setCartProducts }) => {
+  const removeFromCart = (id) => {
+    fetch(`https://638f959f9cbdb0dbe32c1137.mockapi.io/cart/${id}`, {
+      method: 'DELETE',
+    })
+      .then((response) => response.json())
+      .then((product) => product);
+    setCartProducts(cartProducts.filter((product) => product.id !== id));
+  };
+
   return (
     <div className="cart__product">
       <img className="cart__product-package" src="./images/products/package.png" alt="package" />
       <img className="cart__product-union" src="./images/products/union.png" alt="union" />
       <img className="cart__product-pin" src="./images/icons/pin.png" alt="pin" />
-      <button className="cart__product-trash" type="button">
+      <button
+        className="cart__product-trash"
+        type="button"
+        onClick={() => {
+          removeFromCart(product.id);
+        }}>
         <svg
           width="22"
           height="22"

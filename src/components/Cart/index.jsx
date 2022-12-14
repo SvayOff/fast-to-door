@@ -2,7 +2,7 @@ import CartProduct from '../CartProduct';
 
 import styles from '../../libs/style.scss';
 
-const Cart = ({ cartActiveClass, setCartActiveClass, cartProducts }) => {
+const Cart = ({ cartActiveClass, setCartActiveClass, cartProducts, setCartProducts }) => {
   return (
     <div className={cartActiveClass === 'active' ? 'cart active' : 'cart'}>
       <div className="cart__background">
@@ -15,7 +15,14 @@ const Cart = ({ cartActiveClass, setCartActiveClass, cartProducts }) => {
               <h2 className="cart__products-title cart__title">Cart</h2>
               <div className="cart__products-box">
                 {cartProducts.map((product) => {
-                  return <CartProduct key={product.id} product={product} />;
+                  return (
+                    <CartProduct
+                      key={product.id}
+                      product={product}
+                      cartProducts={cartProducts}
+                      setCartProducts={setCartProducts}
+                    />
+                  );
                 })}
               </div>
             </div>

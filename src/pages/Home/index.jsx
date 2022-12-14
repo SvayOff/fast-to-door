@@ -62,7 +62,7 @@ const Home = () => {
     <div className="home">
       <div className="content">
         <div className="home__main">
-          <Header setCartActiveClass={setCartActiveClass} />
+          <Header setCartActiveClass={setCartActiveClass} cartProducts={cartProducts} />
 
           <MainScreen />
         </div>
@@ -90,6 +90,7 @@ const Home = () => {
           cartActiveClass={cartActiveClass}
           setCartActiveClass={setCartActiveClass}
           cartProducts={cartProducts}
+          setCartProducts={setCartProducts}
         />
       </div>
       <Footer />

@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from '../../libs/style.scss';
 
-const Header = ({ setCartActiveClass }) => {
+const Header = ({ setCartActiveClass, cartProducts }) => {
   const [activeClass, setActiveClass] = React.useState('');
 
   const toggleActiveClass = () => {
@@ -119,7 +119,7 @@ const Header = ({ setCartActiveClass }) => {
                 fill="#F9F5F0"
               />
             </svg>
-            <span className="header__cart-count">3</span>
+            <span className="header__cart-count">{cartProducts.length}</span>
           </a>
         </div>
       </div>
