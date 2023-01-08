@@ -1,8 +1,11 @@
+import React from 'react';
 import CartProduct from '../CartProduct';
 
 import styles from '../../libs/style.scss';
 
 const Cart = ({ cartActiveClass, setCartActiveClass, cartProducts, setCartProducts }) => {
+  const [totalCart, setTotalCart] = React.useState([0]);
+
   return (
     <div className={cartActiveClass === 'active' ? 'cart active' : 'cart'}>
       <div className="cart__background">
@@ -92,7 +95,7 @@ const Cart = ({ cartActiveClass, setCartActiveClass, cartProducts, setCartProduc
               </form>
               <div className="cart__total">
                 <h3 className="cart__total-title">Total:</h3>
-                <span className="cart__total-price">9.79 $</span>
+                <span className="cart__total-price">{totalCart} $</span>
               </div>
               <button className="cart__total-btn" type="submit">
                 Will pay and order

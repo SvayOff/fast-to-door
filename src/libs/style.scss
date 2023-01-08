@@ -483,6 +483,9 @@
     @include f900;
   }
   &__search {
+    position: relative;
+  }
+  &__search-input {
     padding: 15px 10px;
     border-radius: 10px;
     border: 1px solid rgba($color: $dark, $alpha: 0.5);
@@ -495,6 +498,21 @@
     }
     &:focus {
       box-shadow: 0 0px 10px 1px rgba($color: $dark, $alpha: 0.2);
+    }
+  }
+  &__search-clear {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    cursor: pointer;
+    &:hover {
+      g {
+        fill: rgba($color: #000000, $alpha: 1);
+      }
+    }
+    g {
+      fill: rgba($color: #000000, $alpha: 0.5);
+      transition: fill 0.3s ease;
     }
   }
   &__items {
