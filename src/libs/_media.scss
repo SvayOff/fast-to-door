@@ -125,6 +125,20 @@
         background-position: top;
         background-size: cover;
         background-repeat: no-repeat;
+        li {
+          transition: all 0.3s ease;
+          border: none;
+          padding: 0;
+          border-radius: 0;
+          &:hover {
+            border: none;
+          }
+          a {
+            &:hover {
+              color: rgba($color: $dark, $alpha: 0.8);
+            }
+          }
+        }
         li + li {
           margin-left: 0;
           margin-top: 30px;
@@ -359,6 +373,19 @@
   }
   .gallery__item {
     max-width: 550px;
+    &:hover {
+      transform: none;
+    }
+    &:nth-child(odd) {
+      &:hover {
+        transform: translateX(-10px);
+      }
+    }
+    &:nth-child(even) {
+      &:hover {
+        transform: translateX(10px);
+      }
+    }
   }
   .application__title {
     font-size: 32px;
@@ -630,6 +657,9 @@
     margin-left: 50%;
     margin-top: -10px;
     transform: translateX(-50%);
+    &:hover {
+      transform: translateX(-50%) scale(1.1);
+    }
   }
   .main__block-text {
     font-size: 15px;

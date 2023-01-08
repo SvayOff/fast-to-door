@@ -40,6 +40,15 @@
     &-list {
       display: flex;
       justify-content: flex-end;
+      li {
+        transition: all 0.3s ease;
+        border: 1px solid rgba($color: $dark, $alpha: 0);
+        padding: 2px 5px;
+        border-radius: 10px;
+        &:hover {
+          border: 1px solid rgba($color: $dark, $alpha: 0.7);
+        }
+      }
       li + li {
         margin-left: 56px;
       }
@@ -102,6 +111,13 @@
     display: flex;
     align-items: center;
     margin-left: 56px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba($color: $dark, $alpha: 0);
+    padding: 5px 5px;
+    border-radius: 10px;
+    &:hover {
+      border: 1px solid rgba($color: $dark, $alpha: 0.7);
+    }
     path {
       fill: $dark;
     }
@@ -126,11 +142,19 @@
       position: absolute;
       top: -60px;
       right: 95px;
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
     &-lichi {
       position: absolute;
       top: -5px;
       left: -30px;
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
   &__row-first,
@@ -164,6 +188,10 @@
   }
   &__block {
     &-img {
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.1);
+      }
       img {
         background-position: center;
         background-repeat: no-repeat;
@@ -419,6 +447,10 @@
     text-decoration: underline;
     padding-left: 30px;
     opacity: 0.7;
+    transition: all 0.3s ease;
+    &:hover {
+      opacity: 10;
+    }
     &::before {
       content: "—";
       position: absolute;
@@ -438,21 +470,32 @@
   }
   &__decor {
     position: absolute;
+    transition: all 0.3s ease;
+
     &-first {
       top: -130px;
       left: 100px;
+      &:hover {
+        transform: scale(1.3);
+      }
     }
     &-second {
       top: -180px;
       left: 280px;
       transform: scale(-60%) rotateZ(120deg);
       filter: blur(1.5px);
+      &:hover {
+        transform: scale(-60%) rotateZ(120deg) scale(1.3);
+      }
     }
     &-third {
       top: -90px;
       right: 90px;
       transform: scale(-40%) rotateZ(170deg);
       filter: blur(3px);
+      &:hover {
+        transform: scale(-40%) rotateZ(170deg) scale(1.3);
+      }
     }
   }
 }
@@ -586,7 +629,11 @@
       width: 100%;
       min-height: 350px;
     }
-
+    &:hover {
+      .products__item-fruit {
+        transform: translateX(-50%) scale(1.1);
+      }
+    }
     &-package {
       position: relative;
       opacity: 0.3;
@@ -613,7 +660,13 @@
       top: 20px;
       right: 20px;
       cursor: pointer;
+      &:hover {
+        path {
+          fill: $dark;
+        }
+      }
       path {
+        transition: fill 0.3s ease;
         fill: #898983;
       }
     }
@@ -628,6 +681,7 @@
       z-index: -1;
       left: 50%;
       transform: translateX(-50%);
+      transition: all 0.3s ease;
     }
     &-info {
       position: absolute;
@@ -672,6 +726,10 @@
     width: 100%;
     padding: 25px 20px;
     text-align: center;
+    transition: all 0.3s ease;
+    &:hover {
+      transform: translateX(-10px) translateY(-10px);
+    }
     &-img {
       width: 100%;
       height: 342px;
@@ -748,6 +806,12 @@
       max-width: 395px;
       width: 100%;
       text-align: center;
+    }
+    &-image {
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.05);
+      }
     }
     &-title {
       font-size: 20px;
@@ -1095,6 +1159,10 @@
       right: 20px;
       top: -160px;
       cursor: pointer;
+      transition: all 0.3s ease;
+      &:hover {
+        transform: scale(1.2);
+      }
     }
   }
   &__products {
@@ -1132,7 +1200,11 @@
       width: 100%;
       min-height: 350px;
     }
-
+    &:hover {
+      .cart__product-fruit {
+        transform: translateX(-50%) scale(1.1);
+      }
+    }
     &-package {
       position: relative;
       opacity: 0.3;
@@ -1159,7 +1231,13 @@
       top: 20px;
       right: 20px;
       cursor: pointer;
+      &:hover {
+        path {
+          stroke: $dark;
+        }
+      }
       path {
+        transition: stroke 0.3s ease;
         stroke: #898983;
       }
     }
@@ -1174,6 +1252,7 @@
       z-index: -1;
       left: 50%;
       transform: translateX(-50%);
+      transition: all 0.3s ease;
     }
     &-title {
       @include f400;
