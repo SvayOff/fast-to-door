@@ -482,6 +482,52 @@
     text-align: center;
     @include f900;
   }
+  &__sort {
+    position: relative;
+    margin: 0 30px;
+  }
+  &__sort-title {
+    font-size: 20px;
+    @include f500;
+    span {
+      position: relative;
+      @include f400;
+      font-size: 16px;
+      color: $dark;
+      font-style: italic;
+      cursor: pointer;
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        bottom: -1px;
+        left: 0;
+      }
+    }
+  }
+  &__sort-list {
+    position: absolute;
+    background-color: $light;
+    border-radius: 10px;
+    border: 1px solid rgba($color: #000000, $alpha: 0.2);
+    box-shadow: 0 0px 10px 1px rgb(19 19 18 / 20%);
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    li {
+      width: max-content;
+      font-size: 14px;
+      padding: 10px 15px;
+      cursor: pointer;
+      &:hover {
+        @include f500;
+        text-decoration: underline;
+      }
+    }
+  }
   &__search {
     position: relative;
   }

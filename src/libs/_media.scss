@@ -242,9 +242,6 @@
     column-count: 3;
     column-gap: 35px;
   }
-  li {
-    margin-bottom: 15px;
-  }
   .footer__menu li + li {
     margin-left: 0px;
   }
@@ -340,6 +337,9 @@
     padding: 12px 10px;
     font-size: 16px;
     margin: 0 auto 50px;
+  }
+  .products__sort-title {
+    margin-bottom: 30px;
   }
   .products__input {
     margin-left: 50%;

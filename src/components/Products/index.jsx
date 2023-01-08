@@ -1,6 +1,7 @@
 import React from 'react';
 import Product from '../Product';
 import ProductSkeleton from '../ProductSkeleton';
+import Sort from '../Sort';
 
 import styles from '../../libs/style.scss';
 
@@ -26,6 +27,7 @@ const Products = ({ products, setCartProducts, searchValue, setSearchValue, load
         <div className="products__inner">
           <div className="products__top">
             <h2 className="products__title">Our products</h2>
+            <Sort />
             <div className="products__search">
               <input
                 className="products__search-input"
@@ -39,7 +41,7 @@ const Products = ({ products, setCartProducts, searchValue, setSearchValue, load
               {searchValue && (
                 <span className="products__search-clear" onClick={() => setSearchValue('')}>
                   <svg
-                    enable-background="new 0 0 32 32"
+                    enableBackground="new 0 0 32 32"
                     height="20px"
                     id="Layer_1"
                     version="1.1"
@@ -51,28 +53,28 @@ const Products = ({ products, setCartProducts, searchValue, setSearchValue, load
                         fill="none"
                         points="   649,137.999 675,137.999 675,155.999 661,155.999  "
                         stroke="#000000"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-miterlimit="10"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeMiterlimit="10"
+                        strokeWidth="2"
                       />
                       <polyline
                         fill="none"
                         points="   653,155.999 649,155.999 649,141.999  "
                         stroke="#000000"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-miterlimit="10"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeMiterlimit="10"
+                        strokeWidth="2"
                       />
                       <polyline
                         fill="none"
                         points="   661,156 653,162 653,156  "
                         stroke="#000000"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-miterlimit="10"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeMiterlimit="10"
+                        strokeWidth="2"
                       />
                     </g>
                     <g>

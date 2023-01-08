@@ -14,25 +14,28 @@ import Cart from '../../components/Cart';
 
 import styles from '../../libs/style.scss';
 
+export const SortContext = React.createContext();
+
 const Home = () => {
   const [cartActiveClass, setCartActiveClass] = React.useState('');
-
   const [products, setProducts] = React.useState([]);
-
   const [cards, setCards] = React.useState([]);
-
   const [cartProducts, setCartProducts] = React.useState([]);
-
   const [searchValue, setSearchValue] = React.useState('');
-
   const [loadingSkeleton, setLoadingSkeleton] = React.useState(true);
+  const [sort, setSort] = React.useState({
+    name: 'Price: High to Low',
+    sortProperty: 'price',
+  });
 
-  const search = searchValue ? `search=${searchValue}` : '';
+  const search = searchValue ? `&search=${searchValue}` : '';
+  const sortBy = `products?sortBy=${sort.sortProperty.replace('-', '')}`;
+  const order = `&order=${sort.sortProperty.includes('-') ? 'asc' : 'desc'}`;
 
   React.useEffect(() => {
     setLoadingSkeleton(true);
 
-    fetch(`https://638f959f9cbdb0dbe32c1137.mockapi.io/products?${search}`, {
+    fetch(`https://638f959f9cbdb0dbe32c1137.mockapi.io/${sortBy}${order}${search}`, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
@@ -56,7 +59,7 @@ const Home = () => {
     fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/cart')
       .then((response) => response.json())
       .then((cartProducts) => setCartProducts(cartProducts));
-  }, []);
+  }, [sort]);
 
   return (
     <div className="home">
@@ -70,13 +73,15 @@ const Home = () => {
 
         <Dialog />
 
-        <Products
-          products={products}
-          setCartProducts={setCartProducts}
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-          loadingSkeleton={loadingSkeleton}
-        />
+        <SortContext.Provider value={{ sort, setSort }}>
+          <Products
+            products={products}
+            setCartProducts={setCartProducts}
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+            loadingSkeleton={loadingSkeleton}
+          />
+        </SortContext.Provider>
 
         <Gallery cards={cards} />
 
