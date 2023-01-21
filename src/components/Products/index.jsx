@@ -2,10 +2,25 @@ import React from 'react';
 import Product from '../Product';
 import ProductSkeleton from '../ProductSkeleton';
 import Sort from '../Sort';
+import debounce from 'lodash.debounce';
 
 import styles from '../../libs/style.scss';
 
 const Products = ({ products, setCartProducts, searchValue, setSearchValue, loadingSkeleton }) => {
+  const [searchLocalValue, setSearchLocalValue] = React.useState('');
+
+  const onChangeSearch = (event) => {
+    setSearchLocalValue(event.target.value);
+    updateSearch(event.target.value);
+  };
+
+  const updateSearch = React.useCallback(
+    debounce((str) => {
+      setSearchValue(str);
+    }, 350),
+    [],
+  );
+
   const mainProducts = products
     .filter((product) => {
       if (product.titleProduct.toLowerCase().includes(searchValue.toLowerCase())) {
@@ -33,12 +48,10 @@ const Products = ({ products, setCartProducts, searchValue, setSearchValue, load
                 className="products__search-input"
                 type="text"
                 placeholder="Search..."
-                value={searchValue}
-                onChange={(event) => {
-                  setSearchValue(event.target.value);
-                }}
+                value={searchLocalValue}
+                onChange={(event) => onChangeSearch(event)}
               />
-              {searchValue && (
+              {searchLocalValue && (
                 <span className="products__search-clear" onClick={() => setSearchValue('')}>
                   <svg
                     enableBackground="new 0 0 32 32"

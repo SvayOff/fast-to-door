@@ -11,22 +11,19 @@ import About from '../../components/About';
 import Contact from '../../components/Contact';
 import Footer from '../../components/Footer';
 import Cart from '../../components/Cart';
+import { useSelector } from 'react-redux';
 
 import styles from '../../libs/style.scss';
 
-export const SortContext = React.createContext();
-
 const Home = () => {
+  const sort = useSelector((state) => state.filterSlice.sort);
+
   const [cartActiveClass, setCartActiveClass] = React.useState('');
   const [products, setProducts] = React.useState([]);
   const [cards, setCards] = React.useState([]);
   const [cartProducts, setCartProducts] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [loadingSkeleton, setLoadingSkeleton] = React.useState(true);
-  const [sort, setSort] = React.useState({
-    name: 'Price: High to Low',
-    sortProperty: 'price',
-  });
 
   const search = searchValue ? `&search=${searchValue}` : '';
   const sortBy = `products?sortBy=${sort.sortProperty.replace('-', '')}`;
@@ -73,15 +70,13 @@ const Home = () => {
 
         <Dialog />
 
-        <SortContext.Provider value={{ sort, setSort }}>
-          <Products
-            products={products}
-            setCartProducts={setCartProducts}
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-            loadingSkeleton={loadingSkeleton}
-          />
-        </SortContext.Provider>
+        <Products
+          products={products}
+          setCartProducts={setCartProducts}
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          loadingSkeleton={loadingSkeleton}
+        />
 
         <Gallery cards={cards} />
 

@@ -1,10 +1,12 @@
 import React from 'react';
-import { SortContext } from '../../pages/Home';
+import { setSort } from '../../redux/slices/filterSlice';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Sort = () => {
-  const [openSort, setOpenSort] = React.useState(false);
+  const dispatch = useDispatch();
+  const sort = useSelector((state) => state.filterSlice.sort);
 
-  const { sort, setSort } = React.useContext(SortContext);
+  const [openSort, setOpenSort] = React.useState(false);
 
   const sortList = [
     {
@@ -22,7 +24,9 @@ const Sort = () => {
   ];
 
   const changeSort = (sort) => {
-    setSort(sort);
+    console.log(sort);
+    dispatch(setSort(sort));
+
     setOpenSort(false);
   };
 
