@@ -1,8 +1,6 @@
 import React from 'react';
 import CartProduct from '../CartProduct';
 
-import styles from '../../libs/style.scss';
-
 const Cart = ({ cartActiveClass, setCartActiveClass, cartProducts, setCartProducts }) => {
   const [totalCart, setTotalCart] = React.useState([0]);
 

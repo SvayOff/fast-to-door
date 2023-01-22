@@ -11,9 +11,8 @@ import About from '../../components/About';
 import Contact from '../../components/Contact';
 import Footer from '../../components/Footer';
 import Cart from '../../components/Cart';
-import { useSelector } from 'react-redux';
 
-import styles from '../../libs/style.scss';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
   const sort = useSelector((state) => state.filterSlice.sort);

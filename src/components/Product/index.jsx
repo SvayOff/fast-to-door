@@ -1,5 +1,3 @@
-import styles from '../../libs/style.scss';
-
 const Product = ({ setCartProducts, product }) => {
   const addToCart = (product) => {
     fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/cart', {

@@ -1,4 +1,3 @@
-import styles from '../../libs/style.scss';
 import Card from '../Card';
 
 const Gallery = ({ cards }) => {

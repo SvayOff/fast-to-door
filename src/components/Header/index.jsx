@@ -1,7 +1,5 @@
 import React from 'react';
 
-import styles from '../../libs/style.scss';
-
 const Header = ({ setCartActiveClass, cartProducts }) => {
   const [activeClass, setActiveClass] = React.useState('');
 

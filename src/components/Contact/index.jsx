@@ -1,5 +1,3 @@
-import styles from '../../libs/style.scss';
-
 const Contact = () => {
   return (
     <div className="contact">

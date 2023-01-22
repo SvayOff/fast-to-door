@@ -1,5 +1,3 @@
-import styles from '../../libs/style.scss';
-
 const Slider = () => {
   return (
     <section className="slider">

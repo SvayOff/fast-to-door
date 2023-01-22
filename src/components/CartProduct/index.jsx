@@ -1,5 +1,3 @@
-import styles from '../../libs/style.scss';
-
 const CartProduct = ({ product, cartProducts, setCartProducts }) => {
   const removeFromCart = (id) => {
     fetch(`https://638f959f9cbdb0dbe32c1137.mockapi.io/cart/${id}`, {

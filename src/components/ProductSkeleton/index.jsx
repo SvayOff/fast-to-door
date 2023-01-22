@@ -1,7 +1,5 @@
 import ContentLoader from 'react-content-loader';
 
-import styles from '../../libs/style.scss';
-
 const ProductSkeleton = (props) => (
   <ContentLoader
     className="products__items"

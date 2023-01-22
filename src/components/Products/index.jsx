@@ -4,8 +4,6 @@ import ProductSkeleton from '../ProductSkeleton';
 import Sort from '../Sort';
 import debounce from 'lodash.debounce';
 
-import styles from '../../libs/style.scss';
-
 const Products = ({ products, setCartProducts, searchValue, setSearchValue, loadingSkeleton }) => {
   const [searchLocalValue, setSearchLocalValue] = React.useState('');
 
@@ -20,6 +18,11 @@ const Products = ({ products, setCartProducts, searchValue, setSearchValue, load
     }, 350),
     [],
   );
+
+  const clearSearch = () => {
+    setSearchLocalValue('');
+    setSearchValue('');
+  };
 
   const mainProducts = products
     .filter((product) => {
@@ -51,8 +54,8 @@ const Products = ({ products, setCartProducts, searchValue, setSearchValue, load
                 value={searchLocalValue}
                 onChange={(event) => onChangeSearch(event)}
               />
-              {searchLocalValue && (
-                <span className="products__search-clear" onClick={() => setSearchValue('')}>
+              {searchValue && (
+                <span className="products__search-clear" onClick={() => clearSearch()}>
                   <svg
                     enableBackground="new 0 0 32 32"
                     height="20px"
