@@ -1,4 +1,5 @@
 import React from 'react';
+import qs from 'qs';
 
 import Header from '../../components/Header';
 import MainScreen from '../../components/MainScreen';
@@ -11,11 +12,16 @@ import About from '../../components/About';
 import Contact from '../../components/Contact';
 import Footer from '../../components/Footer';
 import Cart from '../../components/Cart';
+import { sortList } from '../../components/Sort';
 
-import { useSelector } from 'react-redux';
+import { setFilter } from '../../redux/slices/filterSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const sort = useSelector((state) => state.filterSlice.sort);
+  const dispatch = useDispatch();
+  const sortProperty = useSelector((state) => state.filterSlice.sort.sortProperty);
+  const navigate = useNavigate();
 
   const [cartActiveClass, setCartActiveClass] = React.useState('');
   const [products, setProducts] = React.useState([]);
@@ -23,12 +29,14 @@ const Home = () => {
   const [cartProducts, setCartProducts] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [loadingSkeleton, setLoadingSkeleton] = React.useState(true);
+  const isSearch = React.useRef(false);
+  const isMounted = React.useRef(false);
 
   const search = searchValue ? `&search=${searchValue}` : '';
-  const sortBy = `products?sortBy=${sort.sortProperty.replace('-', '')}`;
-  const order = `&order=${sort.sortProperty.includes('-') ? 'asc' : 'desc'}`;
+  const sortBy = `products?sortBy=${sortProperty.replace('-', '')}`;
+  const order = `&order=${sortProperty.includes('-') ? 'asc' : 'desc'}`;
 
-  React.useEffect(() => {
+  const fetchProduct = () => {
     setLoadingSkeleton(true);
 
     fetch(`https://638f959f9cbdb0dbe32c1137.mockapi.io/${sortBy}${order}${search}`, {
@@ -42,7 +50,38 @@ const Home = () => {
         setLoadingSkeleton(false);
         setProducts(products);
       });
+  };
 
+  React.useEffect(() => {
+    if (isMounted.current) {
+      const queryString = qs.stringify({
+        sortProperty,
+      });
+
+      navigate(`?${queryString}`);
+    }
+    isMounted.current = true;
+  }, [sortProperty]);
+
+  React.useEffect(() => {
+    if (window.location.search) {
+      const params = qs.parse(window.location.search.substring(1));
+      const sort = sortList.find((obj) => obj.sortProperty === params.sortProperty);
+
+      dispatch(setFilter({ sort }));
+
+      isSearch.current = true;
+    }
+  }, []);
+
+  React.useEffect(() => {
+    if (!isSearch.current) {
+      fetchProduct();
+    }
+    isSearch.current = false;
+  }, [sortProperty]);
+
+  React.useEffect(() => {
     fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/cards', {
       headers: {
         'Content-Type': 'application/json',
@@ -55,7 +94,7 @@ const Home = () => {
     fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/cart')
       .then((response) => response.json())
       .then((cartProducts) => setCartProducts(cartProducts));
-  }, [sort]);
+  }, []);
 
   return (
     <div className="home">

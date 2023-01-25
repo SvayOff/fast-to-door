@@ -4,6 +4,7 @@ import ProductSkeleton from '../ProductSkeleton';
 import Sort from '../Sort';
 import debounce from 'lodash.debounce';
 
+
 const Products = ({ products, setCartProducts, searchValue, setSearchValue, loadingSkeleton }) => {
   const [searchLocalValue, setSearchLocalValue] = React.useState('');
 
