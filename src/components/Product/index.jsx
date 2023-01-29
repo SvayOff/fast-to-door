@@ -1,15 +1,23 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addProductToCart, calcTotalCartPrice } from '../../redux/slices/cartSlice';
+import { useDispatch } from 'react-redux';
+import {
+  addProductToCart,
+  calcTotalCartPrice,
+  visibleAddedToCart,
+} from '../../redux/slices/cartSlice';
 
 const Product = ({ product }) => {
   const dispatch = useDispatch();
-  const cartProducts = useSelector((state) => state.cartSlice.cartProducts);
 
   const addToCart = (product) => {
     dispatch(addProductToCart(product));
 
     dispatch(calcTotalCartPrice());
+
+    dispatch(visibleAddedToCart(true));
+    setTimeout(() => {
+      dispatch(visibleAddedToCart(false));
+    }, 1000);
   };
 
   return (

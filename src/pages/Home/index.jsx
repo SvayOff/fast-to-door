@@ -22,6 +22,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const sortProperty = useSelector((state) => state.filterSlice.sort.sortProperty);
+  const isAddedToCart = useSelector((state) => state.cartSlice.isAddedToCart);
   const [cartActiveClass, setCartActiveClass] = React.useState('');
   const [products, setProducts] = React.useState([]);
   const [cards, setCards] = React.useState([]);
@@ -118,6 +119,7 @@ const Home = () => {
 
         <Cart cartActiveClass={cartActiveClass} setCartActiveClass={setCartActiveClass} />
       </div>
+      <div className={isAddedToCart ? 'purchased show' : 'purchased hidden'}>Added to Cart</div>
       <Footer />
     </div>
   );

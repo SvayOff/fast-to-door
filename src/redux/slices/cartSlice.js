@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
   cartProducts: [],
   totalCartPrice: 0,
+  isAddedToCart: false,
 }
 
 const cartSlice = createSlice({
@@ -61,6 +62,10 @@ const cartSlice = createSlice({
         findProduct.count = 1;
         findProduct.priceFull = findProduct.pricePiece;
       }
+    },
+
+    visibleAddedToCart: (state, action) => {
+      state.isAddedToCart = action.payload;
     }
   }
 });
@@ -72,7 +77,8 @@ export const {
   calcTotalCartPrice,
   calcProductPrice,
   plusProductCart,
-  minusProductCart
+  minusProductCart,
+  visibleAddedToCart
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
