@@ -1,8 +1,11 @@
 import React from 'react';
 import CartProduct from '../CartProduct';
+import { useDispatch, useSelector } from 'react-redux';
 
-const Cart = ({ cartActiveClass, setCartActiveClass, cartProducts, setCartProducts }) => {
-  const [totalCart, setTotalCart] = React.useState([0]);
+const Cart = ({ cartActiveClass, setCartActiveClass }) => {
+  const dispatch = useDispatch();
+  const totalCartPrice = useSelector((state) => state.cartSlice.totalCartPrice);
+  const cartProducts = useSelector((state) => state.cartSlice.cartProducts);
 
   return (
     <div className={cartActiveClass === 'active' ? 'cart active' : 'cart'}>
@@ -16,14 +19,7 @@ const Cart = ({ cartActiveClass, setCartActiveClass, cartProducts, setCartProduc
               <h2 className="cart__products-title cart__title">Cart</h2>
               <div className="cart__products-box">
                 {cartProducts.map((product) => {
-                  return (
-                    <CartProduct
-                      key={product.id}
-                      product={product}
-                      cartProducts={cartProducts}
-                      setCartProducts={setCartProducts}
-                    />
-                  );
+                  return <CartProduct key={product.id} product={product} />;
                 })}
               </div>
             </div>
@@ -93,7 +89,7 @@ const Cart = ({ cartActiveClass, setCartActiveClass, cartProducts, setCartProduc
               </form>
               <div className="cart__total">
                 <h3 className="cart__total-title">Total:</h3>
-                <span className="cart__total-price">{totalCart} $</span>
+                <span className="cart__total-price">{totalCartPrice.toFixed(2)} $</span>
               </div>
               <button className="cart__total-btn" type="submit">
                 Will pay and order

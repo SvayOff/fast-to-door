@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   cartProducts: [],
-  totalPrice: 0,
+  totalCartPrice: 0,
 }
 
 const cartSlice = createSlice({
@@ -10,13 +10,69 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     setCartProducts: (state, action) => {
-      state.cartProducts.push({
+
+      state.cartProducts.push(
         ...action.payload,
-        count: 1
-      });
+      );
+
+    },
+
+    addProductToCart: (state, action) => {
+      const findProduct = state.cartProducts.find((product) => product.id === action.payload.id);
+
+      if (findProduct) {
+        findProduct.count++;
+        findProduct.priceFull = findProduct.count * findProduct.pricePiece;
+      } else {
+        state.cartProducts = [...state.cartProducts, action.payload];
+      }
+    },
+
+    removeProductFromCart: (state, action) => {
+      state.cartProducts = state.cartProducts.filter((product) => product.id !== action.payload);
+    },
+
+    calcTotalCartPrice: (state, action) => {
+      state.totalCartPrice = state.cartProducts.reduce((sum, product) => {
+        return product.priceFull + sum;
+      }, 0);
+    },
+
+    plusProductCart: (state, action) => {
+      const findProduct = state.cartProducts.find((product) => product.id === action.payload);
+
+      if (findProduct) {
+        findProduct.count++;
+
+        findProduct.priceFull = findProduct.count * findProduct.pricePiece;
+      }
+    },
+
+    minusProductCart: (state, action) => {
+      const findProduct = state.cartProducts.find((product) => product.id === action.payload);
+
+      if (findProduct) {
+        findProduct.count--;
+
+        findProduct.priceFull = findProduct.count * findProduct.pricePiece
+      }
+
+      if (findProduct.count <= 0) {
+        findProduct.count = 1;
+        findProduct.priceFull = findProduct.pricePiece;
+      }
     }
   }
 });
 
-export const { setCartProducts } = cartSlice.actions;
+export const {
+  setCartProducts,
+  addProductToCart,
+  removeProductFromCart,
+  calcTotalCartPrice,
+  calcProductPrice,
+  plusProductCart,
+  minusProductCart
+} = cartSlice.actions;
+
 export default cartSlice.reducer;

@@ -20,18 +20,15 @@ import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const sortProperty = useSelector((state) => state.filterSlice.sort.sortProperty);
   const navigate = useNavigate();
-
+  const sortProperty = useSelector((state) => state.filterSlice.sort.sortProperty);
   const [cartActiveClass, setCartActiveClass] = React.useState('');
   const [products, setProducts] = React.useState([]);
   const [cards, setCards] = React.useState([]);
-  const [cartProducts, setCartProducts] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [loadingSkeleton, setLoadingSkeleton] = React.useState(true);
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
-
   const search = searchValue ? `&search=${searchValue}` : '';
   const sortBy = `products?sortBy=${sortProperty.replace('-', '')}`;
   const order = `&order=${sortProperty.includes('-') ? 'asc' : 'desc'}`;
@@ -90,17 +87,13 @@ const Home = () => {
     })
       .then((response) => response.json())
       .then((cards) => setCards(cards));
-
-    fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/cart')
-      .then((response) => response.json())
-      .then((cartProducts) => setCartProducts(cartProducts));
   }, []);
 
   return (
     <div className="home">
       <div className="content">
         <div className="home__main">
-          <Header setCartActiveClass={setCartActiveClass} cartProducts={cartProducts} />
+          <Header setCartActiveClass={setCartActiveClass} />
 
           <MainScreen />
         </div>
@@ -110,7 +103,6 @@ const Home = () => {
 
         <Products
           products={products}
-          setCartProducts={setCartProducts}
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           loadingSkeleton={loadingSkeleton}
@@ -124,12 +116,7 @@ const Home = () => {
 
         <Contact />
 
-        <Cart
-          cartActiveClass={cartActiveClass}
-          setCartActiveClass={setCartActiveClass}
-          cartProducts={cartProducts}
-          setCartProducts={setCartProducts}
-        />
+        <Cart cartActiveClass={cartActiveClass} setCartActiveClass={setCartActiveClass} />
       </div>
       <Footer />
     </div>

@@ -1,6 +1,9 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const Header = ({ setCartActiveClass, cartProducts }) => {
+const Header = ({ setCartActiveClass }) => {
+  const cartProducts = useSelector((state) => state.cartSlice.cartProducts);
+
   const [activeClass, setActiveClass] = React.useState('');
 
   const toggleActiveClass = () => {

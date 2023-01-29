@@ -1,11 +1,28 @@
-const CartProduct = ({ product, cartProducts, setCartProducts }) => {
+import { useDispatch } from 'react-redux';
+import {
+  removeProductFromCart,
+  calcTotalCartPrice,
+  plusProductCart,
+  minusProductCart,
+} from '../../redux/slices/cartSlice';
+
+const CartProduct = ({ product }) => {
+  const dispatch = useDispatch();
+
   const removeFromCart = (id) => {
-    fetch(`https://638f959f9cbdb0dbe32c1137.mockapi.io/cart/${id}`, {
-      method: 'DELETE',
-    })
-      .then((response) => response.json())
-      .then((product) => product);
-    setCartProducts(cartProducts.filter((product) => product.id !== id));
+    dispatch(removeProductFromCart(id));
+
+    dispatch(calcTotalCartPrice());
+  };
+
+  const onClickPlus = (id) => {
+    dispatch(plusProductCart(product.id));
+    dispatch(calcTotalCartPrice());
+  };
+
+  const onClickMinus = () => {
+    dispatch(minusProductCart(product.id));
+    dispatch(calcTotalCartPrice());
   };
 
   return (
@@ -60,7 +77,7 @@ const CartProduct = ({ product, cartProducts, setCartProducts }) => {
       </h3>
       <div className="cart__product-info">
         <div className="cart__product-counter">
-          <button type="button" className="cart__product-minus">
+          <button onClick={onClickMinus} type="button" className="cart__product-minus">
             <svg
               width="14"
               height="2"
@@ -71,9 +88,9 @@ const CartProduct = ({ product, cartProducts, setCartProducts }) => {
             </svg>
           </button>
           <div className="cart__product-count">
-            <span>1</span> pc
+            <span>{product.count}</span> pc
           </div>
-          <button type="button" className="cart__product-plus">
+          <button onClick={onClickPlus} type="button" className="cart__product-plus">
             <svg
               width="14"
               height="14"
@@ -89,7 +106,9 @@ const CartProduct = ({ product, cartProducts, setCartProducts }) => {
             </svg>
           </button>
         </div>
-        <span className="cart__product-price">{product.price} $</span>
+        <span className="cart__product-price">
+          {product.count > 1 ? product.priceFull.toFixed(2) : product.pricePiece.toFixed(2)} $
+        </span>
       </div>
     </div>
   );

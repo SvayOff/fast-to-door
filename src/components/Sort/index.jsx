@@ -23,14 +23,30 @@ const Sort = () => {
 
   const [openSort, setOpenSort] = React.useState(false);
 
+  const sortRef = React.useRef();
+
   const changeSort = (sort) => {
     dispatch(setSort(sort));
 
     setOpenSort(false);
   };
 
+  React.useEffect(() => {
+    const clickOusideSort = (e) => {
+      if (!e.path.includes(sortRef.current)) {
+        setOpenSort(false);
+      }
+    };
+
+    document.body.addEventListener('click', clickOusideSort);
+
+    return () => {
+      document.doby.removeEventListener('click', clickOusideSort);
+    };
+  }, []);
+
   return (
-    <div className="products__sort">
+    <div ref={sortRef} className="products__sort">
       <h3 className="products__sort-title">
         Sort By: <span onClick={() => setOpenSort(!openSort)}>{sort.name}</span>
       </h3>

@@ -15,9 +15,7 @@ const filterSlice = createSlice({
       state.sort = action.payload;
     },
     setFilter: (state, action) => {
-      console.log(state.action)
-      state.sort = action.payload.sort
-
+      state.sort = action.payload.sort;
     }
   }
 

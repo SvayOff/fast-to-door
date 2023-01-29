@@ -1,14 +1,15 @@
-const Product = ({ setCartProducts, product }) => {
-  const addToCart = (product) => {
-    fetch('https://638f959f9cbdb0dbe32c1137.mockapi.io/cart', {
-      method: 'POST',
-      body: JSON.stringify(product),
-      headers: {
-        'Content-type': 'application/json',
-      },
-    });
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProductToCart, calcTotalCartPrice } from '../../redux/slices/cartSlice';
 
-    setCartProducts((cartProducts) => [...cartProducts, product]);
+const Product = ({ product }) => {
+  const dispatch = useDispatch();
+  const cartProducts = useSelector((state) => state.cartSlice.cartProducts);
+
+  const addToCart = (product) => {
+    dispatch(addProductToCart(product));
+
+    dispatch(calcTotalCartPrice());
   };
 
   return (
@@ -39,7 +40,7 @@ const Product = ({ setCartProducts, product }) => {
       </button>
       <img className="products__item-fruit" src={product.imgUrl} alt="product" />
       <div className="products__item-info">
-        {product.price} $ / pc ({product.weight})
+        {product.pricePiece} $ / pc ({product.weight})
       </div>
     </div>
   );

@@ -4,8 +4,7 @@ import ProductSkeleton from '../ProductSkeleton';
 import Sort from '../Sort';
 import debounce from 'lodash.debounce';
 
-
-const Products = ({ products, setCartProducts, searchValue, setSearchValue, loadingSkeleton }) => {
+const Products = ({ products, searchValue, setSearchValue, loadingSkeleton }) => {
   const [searchLocalValue, setSearchLocalValue] = React.useState('');
 
   const onChangeSearch = (event) => {
@@ -33,7 +32,7 @@ const Products = ({ products, setCartProducts, searchValue, setSearchValue, load
       return false;
     })
     .map((product) => {
-      return <Product key={product.id} setCartProducts={setCartProducts} product={product} />;
+      return <Product key={product.id} product={product} />;
     });
 
   const skeletonProducts = [...new Array(8)].map((_, index) => {
