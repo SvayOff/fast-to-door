@@ -1,7 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCartActiveClass } from '../../redux/slices/cartSlice';
 
-const Header = ({ setCartActiveClass }) => {
+const Header = () => {
+  const dispatch = useDispatch();
   const cartProducts = useSelector((state) => state.cartSlice.cartProducts);
 
   const [activeClass, setActiveClass] = React.useState('');
@@ -99,7 +102,10 @@ const Header = ({ setCartActiveClass }) => {
             </div>
           </nav>
 
-          <a href="#" className="header__cart" onClick={() => setCartActiveClass('active')}>
+          <Link
+            to="#"
+            className="header__cart"
+            onClick={() => dispatch(setCartActiveClass('active'))}>
             <svg
               className="header__cart-img"
               width="20"
@@ -121,7 +127,7 @@ const Header = ({ setCartActiveClass }) => {
               />
             </svg>
             <span className="header__cart-count">{cartProducts.length}</span>
-          </a>
+          </Link>
         </div>
       </div>
     </header>

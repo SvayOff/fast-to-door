@@ -4,7 +4,11 @@ import ProductSkeleton from '../ProductSkeleton';
 import Sort from '../Sort';
 import debounce from 'lodash.debounce';
 
-const Products = ({ products, searchValue, setSearchValue, loadingSkeleton }) => {
+import { useDispatch, useSelector } from 'react-redux';
+
+const Products = ({ searchValue, setSearchValue, loadingSkeleton }) => {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.productsSlice.products);
   const [searchLocalValue, setSearchLocalValue] = React.useState('');
 
   const onChangeSearch = (event) => {

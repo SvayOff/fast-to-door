@@ -1,18 +1,20 @@
 import React from 'react';
 import CartProduct from '../CartProduct';
 import { useDispatch, useSelector } from 'react-redux';
+import { setCartActiveClass } from '../../redux/slices/cartSlice';
 
-const Cart = ({ cartActiveClass, setCartActiveClass }) => {
+const Cart = () => {
   const dispatch = useDispatch();
   const totalCartPrice = useSelector((state) => state.cartSlice.totalCartPrice);
   const cartProducts = useSelector((state) => state.cartSlice.cartProducts);
+  const cartActiveClass = useSelector((state) => state.cartSlice.cartActiveClass);
 
   return (
     <div className={cartActiveClass === 'active' ? 'cart active' : 'cart'}>
       <div className="cart__background">
         <div className="container">
           <div className="cart__inner">
-            <button className="cart__inner-close" onClick={() => setCartActiveClass('')}>
+            <button className="cart__inner-close" onClick={() => dispatch(setCartActiveClass(''))}>
               <img src="./images/icons/close.png" alt="close" />
             </button>
             <div className="cart__products">

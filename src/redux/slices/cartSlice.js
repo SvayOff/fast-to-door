@@ -4,6 +4,7 @@ const initialState = {
   cartProducts: [],
   totalCartPrice: 0,
   isAddedToCart: false,
+  cartActiveClass: '',
 }
 
 const cartSlice = createSlice({
@@ -66,6 +67,10 @@ const cartSlice = createSlice({
 
     visibleAddedToCart: (state, action) => {
       state.isAddedToCart = action.payload;
+    },
+
+    setCartActiveClass: (state, action) => {
+      state.cartActiveClass = action.payload;
     }
   }
 });
@@ -78,7 +83,8 @@ export const {
   calcProductPrice,
   plusProductCart,
   minusProductCart,
-  visibleAddedToCart
+  visibleAddedToCart,
+  setCartActiveClass
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

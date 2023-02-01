@@ -15,6 +15,7 @@ import Cart from '../../components/Cart';
 import { sortList } from '../../components/Sort';
 
 import { setFilter } from '../../redux/slices/filterSlice';
+import { setProducts } from '../../redux/slices/productsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,8 +24,7 @@ const Home = () => {
   const navigate = useNavigate();
   const sortProperty = useSelector((state) => state.filterSlice.sort.sortProperty);
   const isAddedToCart = useSelector((state) => state.cartSlice.isAddedToCart);
-  const [cartActiveClass, setCartActiveClass] = React.useState('');
-  const [products, setProducts] = React.useState([]);
+  const products = useSelector((state) => state.productsSlice.products);
   const [cards, setCards] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [loadingSkeleton, setLoadingSkeleton] = React.useState(true);
@@ -46,7 +46,7 @@ const Home = () => {
       .then((response) => response.json())
       .then((products) => {
         setLoadingSkeleton(false);
-        setProducts(products);
+        dispatch(setProducts(products));
       });
   };
 
@@ -94,7 +94,7 @@ const Home = () => {
     <div className="home">
       <div className="content">
         <div className="home__main">
-          <Header setCartActiveClass={setCartActiveClass} />
+          <Header />
 
           <MainScreen />
         </div>
@@ -103,7 +103,6 @@ const Home = () => {
         <Dialog />
 
         <Products
-          products={products}
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           loadingSkeleton={loadingSkeleton}
@@ -117,7 +116,7 @@ const Home = () => {
 
         <Contact />
 
-        <Cart cartActiveClass={cartActiveClass} setCartActiveClass={setCartActiveClass} />
+        <Cart />
       </div>
       <div className={isAddedToCart ? 'purchased show' : 'purchased hidden'}>Added to Cart</div>
       <Footer />
