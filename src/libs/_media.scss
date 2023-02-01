@@ -248,16 +248,17 @@
     margin-left: 0;
     margin-top: 32px;
   }
-  .footer__inner {
-    align-items: flex-start;
-  }
   .footer__menu {
     display: block;
     column-count: 3;
     column-gap: 35px;
-  }
-  .footer__menu li + li {
-    margin-left: 0px;
+    li {
+      text-align: center;
+    }
+    li + li {
+      margin-left: 0px;
+      margin-top: 5px;
+    }
   }
 }
 
@@ -594,6 +595,14 @@
   .footer__menu {
     column-count: 2;
     column-gap: 25px;
+    li {
+      padding: 0;
+      text-align: left;
+      border: none;
+      &:hover {
+        border: none;
+      }
+    }
   }
   .cart__product {
     min-width: 200px;

@@ -1125,13 +1125,29 @@
     margin-bottom: 40px;
   }
   &__logo {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
     margin-right: 35px;
     min-width: 59px;
     min-height: 36px;
   }
   &__menu {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
+    z-index: 10;
+    li {
+      border: 1px solid transparent;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      padding: 2px 5px;
+      
+      &:hover {
+        border: 1px solid $light;
+      }
+    }
     li + li {
       margin-left: 56px;
     }
