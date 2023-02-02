@@ -5,15 +5,15 @@ import { useDispatch, useSelector } from 'react-redux';
 export const sortList = [
   {
     name: 'Price: High to Low',
-    sortProperty: 'price',
+    sortProperty: 'pricePiece',
   },
   {
     name: 'Price: Low to High',
-    sortProperty: '-price',
+    sortProperty: '-pricePiece',
   },
   {
     name: 'From A to Z',
-    sortProperty: 'title',
+    sortProperty: '-titleProduct',
   },
 ];
 

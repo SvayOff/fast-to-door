@@ -24,7 +24,6 @@ const Home = () => {
   const navigate = useNavigate();
   const sortProperty = useSelector((state) => state.filterSlice.sort.sortProperty);
   const isAddedToCart = useSelector((state) => state.cartSlice.isAddedToCart);
-  const products = useSelector((state) => state.productsSlice.products);
   const [cards, setCards] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [loadingSkeleton, setLoadingSkeleton] = React.useState(true);
