@@ -6,9 +6,10 @@ import debounce from 'lodash.debounce';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-const Products = ({ searchValue, setSearchValue, loadingSkeleton }) => {
+const Products = ({ searchValue, setSearchValue }) => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.productsSlice.products);
+  const loadingSkeleton = useSelector((state) => state.productsSlice.loadingSkeleton);
   const [searchLocalValue, setSearchLocalValue] = React.useState('');
 
   const onChangeSearch = (event) => {

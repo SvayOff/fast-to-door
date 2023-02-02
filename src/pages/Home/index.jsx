@@ -15,7 +15,7 @@ import Cart from '../../components/Cart';
 import { sortList } from '../../components/Sort';
 
 import { setFilter } from '../../redux/slices/filterSlice';
-import { setProducts } from '../../redux/slices/productsSlice';
+import { setProducts, setCards, setLoadingSkeleton } from '../../redux/slices/productsSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
@@ -24,9 +24,7 @@ const Home = () => {
   const navigate = useNavigate();
   const sortProperty = useSelector((state) => state.filterSlice.sort.sortProperty);
   const isAddedToCart = useSelector((state) => state.cartSlice.isAddedToCart);
-  const [cards, setCards] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
-  const [loadingSkeleton, setLoadingSkeleton] = React.useState(true);
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
   const search = searchValue ? `&search=${searchValue}` : '';
@@ -34,7 +32,7 @@ const Home = () => {
   const order = `&order=${sortProperty.includes('-') ? 'asc' : 'desc'}`;
 
   const fetchProduct = () => {
-    setLoadingSkeleton(true);
+    dispatch(setLoadingSkeleton(true));
 
     fetch(`https://638f959f9cbdb0dbe32c1137.mockapi.io/${sortBy}${order}${search}`, {
       headers: {
@@ -44,7 +42,7 @@ const Home = () => {
     })
       .then((response) => response.json())
       .then((products) => {
-        setLoadingSkeleton(false);
+        dispatch(setLoadingSkeleton(false));
         dispatch(setProducts(products));
       });
   };
@@ -86,7 +84,7 @@ const Home = () => {
       },
     })
       .then((response) => response.json())
-      .then((cards) => setCards(cards));
+      .then((cards) => dispatch(setCards(cards)));
   }, []);
 
   return (
@@ -101,13 +99,9 @@ const Home = () => {
 
         <Dialog />
 
-        <Products
-          searchValue={searchValue}
-          setSearchValue={setSearchValue}
-          loadingSkeleton={loadingSkeleton}
-        />
+        <Products searchValue={searchValue} setSearchValue={setSearchValue} />
 
-        <Gallery cards={cards} />
+        <Gallery />
 
         <Application />
 

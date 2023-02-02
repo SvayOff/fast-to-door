@@ -1,6 +1,8 @@
 import Card from '../Card';
+import { useSelector } from 'react-redux';
 
-const Gallery = ({ cards }) => {
+const Gallery = () => {
+  const cards = useSelector((state) => state.productsSlice.cards);
   return (
     <div className="gallery">
       <div className="container">
