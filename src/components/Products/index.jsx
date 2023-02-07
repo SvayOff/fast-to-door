@@ -5,28 +5,30 @@ import Sort from '../Sort';
 import debounce from 'lodash.debounce';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { setSearchValue, setSearchValueLocal } from '../../redux/slices/filterSlice';
 
-const Products = ({ searchValue, setSearchValue }) => {
+const Products = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.productsSlice.products);
+  const searchValue = useSelector((state) => state.filterSlice.searchValue);
+  const searchValueLocal = useSelector((state) => state.filterSlice.searchValueLocal);
   const loadingSkeleton = useSelector((state) => state.productsSlice.loadingSkeleton);
-  const [searchLocalValue, setSearchLocalValue] = React.useState('');
 
   const onChangeSearch = (event) => {
-    setSearchLocalValue(event.target.value);
+    dispatch(setSearchValueLocal(event.target.value));
     updateSearch(event.target.value);
   };
 
   const updateSearch = React.useCallback(
     debounce((str) => {
-      setSearchValue(str);
+      dispatch(setSearchValue(str));
     }, 350),
     [],
   );
 
   const clearSearch = () => {
-    setSearchLocalValue('');
-    setSearchValue('');
+    dispatch(setSearchValueLocal(''));
+    dispatch(setSearchValue(''));
   };
 
   const mainProducts = products
@@ -56,7 +58,7 @@ const Products = ({ searchValue, setSearchValue }) => {
                 className="products__search-input"
                 type="text"
                 placeholder="Search..."
-                value={searchLocalValue}
+                value={searchValueLocal}
                 onChange={(event) => onChangeSearch(event)}
               />
               {searchValue && (

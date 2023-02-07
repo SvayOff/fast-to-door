@@ -24,7 +24,7 @@ const Home = () => {
   const navigate = useNavigate();
   const sortProperty = useSelector((state) => state.filterSlice.sort.sortProperty);
   const isAddedToCart = useSelector((state) => state.cartSlice.isAddedToCart);
-  const [searchValue, setSearchValue] = React.useState('');
+  const searchValue = useSelector((state) => state.filterSlice.searchValue);
   const isSearch = React.useRef(false);
   const isMounted = React.useRef(false);
   const search = searchValue ? `&search=${searchValue}` : '';
@@ -99,7 +99,7 @@ const Home = () => {
 
         <Dialog />
 
-        <Products searchValue={searchValue} setSearchValue={setSearchValue} />
+        <Products />
 
         <Gallery />
 

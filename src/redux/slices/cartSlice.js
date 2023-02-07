@@ -71,7 +71,7 @@ const cartSlice = createSlice({
 
     setCartActiveClass: (state, action) => {
       state.cartActiveClass = action.payload;
-    }
+    },
   }
 });
 
