@@ -1,3 +1,40 @@
+import React from 'react';
+
+const slides = [
+  {
+    slideName: 'Passion fruit',
+    slideDesc: `
+      The brown-violet skin of the passionfruit  
+      <img 
+        className="slider__item-img"
+        src="./images/slider/slide_1.png"
+        alt="passion-fruit" 
+      />
+      is quite dense - the fruit is well stored. The riper the fruit, the more pronounced
+      its aroma. Passion fruit is eaten fresh or in the form of juice, jelly. The fruit is
+      cut and the pulp with a large number of small seeds is taken out with a spoon. It
+      has a sweet and sour, very pleasant, refreshing taste. The dense peel and the white
+      part adjacent to it are not eaten.
+  `,
+  },
+
+  {
+    slideName: 'Rambutan',
+    slideDesc: `
+      This fruit has an exotic appearance.
+      <img
+        className="slider__item-img"
+        src="./images/slider/slide_2.png"
+        alt="rambutan-fruit"
+      />
+      Small fruits have a sweet, very pleasant taste. Under the peel with soft curved
+      thorns, a dense pulp of a jelly-like consistency is hidden. There is a large bone
+      inside it. Be careful when biting the flesh! It is better to use a knife to extract
+      the inedible bone.
+  `,
+  },
+];
+
 const Slider = () => {
   return (
     <section className="slider">
@@ -6,20 +43,8 @@ const Slider = () => {
           <h2 className="slider__title">How to consume exotic fruits?</h2>
           <div className="slider__box">
             <div className="slider__item active">
-              <h3 className="slider__item-name">Passion fruit</h3>
-              <p className="slider__item-text">
-                The brown-violet skin of the passionfruit
-                <img
-                  className="slider__item-img"
-                  src="./images/slider/slide_1.png"
-                  alt="passion-fruit"
-                />
-                is quite dense - the fruit is well stored. The riper the fruit, the more pronounced
-                its aroma. Passion fruit is eaten fresh or in the form of juice, jelly. The fruit is
-                cut and the pulp with a large number of small seeds is taken out with a spoon. It
-                has a sweet and sour, very pleasant, refreshing taste. The dense peel and the white
-                part adjacent to it are not eaten.
-              </p>
+              <h3 className="slider__item-name">{slides[0].slideName}</h3>
+              <p className="slider__item-text">{slides[0].slideDesc}</p>
             </div>
             <div className="slider__item">
               <h3 className="slider__item-name">Rambutan</h3>
