@@ -1,7 +1,10 @@
 import React from 'react';
+import Slide from '../Slide';
+import SlideDot from '../SlideDot';
 
 const slides = [
   {
+    id: 1,
     slideName: 'Passion fruit',
     slideDesc: `
       The brown-violet skin of the passionfruit  
@@ -19,6 +22,7 @@ const slides = [
   },
 
   {
+    id: 2,
     slideName: 'Rambutan',
     slideDesc: `
       This fruit has an exotic appearance.
@@ -33,6 +37,90 @@ const slides = [
       the inedible bone.
   `,
   },
+
+  {
+    id: 2,
+    slideName: `Mangosteen`,
+    slideDesc: `
+      The brown-violet skin of the passionfruit
+      <img
+        className="slider__item-img"
+        src="./images/slider/slide_1.png"
+        alt="passion-fruit"
+      />
+      is quite dense - the fruit is well stored. The riper the fruit, the more pronounced
+      its aroma. Passion fruit is eaten fresh or in the form of juice, jelly. The fruit is
+      cut and the pulp with a large number of small seeds is taken out with a spoon. It
+      has a sweet and sour, very pleasant, refreshing taste. The dense peel and the white
+      part adjacent to it are not eaten.
+    `,
+  },
+
+  {
+    id: 3,
+    slideName: `Cherimoya`,
+    slideDesc: `
+      This fruit has an exotic appearance.
+      <img
+        className="slider__item-img"
+        src="./images/slider/slide_2.png"
+        alt="rambutan-fruit"
+      />
+      Small fruits have a sweet, very pleasant taste. Under the peel with soft curved
+      thorns, a dense pulp of a jelly-like consistency is hidden. There is a large bone
+      inside it. Be careful when biting the flesh! It is better to use a knife to extract
+      the inedible bone.
+    `,
+  },
+
+  {
+    id: 4,
+    slideName: `Lychee`,
+    slideDesc: `
+    An evergreen tree with a height of 10-30 meters (usually up to 15 meters), with a spreading crown. The leaves are complex, pinnate (rarely they are odd pinnate), consist of 4-8 elongated-ovate or lanceolate leaflets with a pointed end.
+    `,
+  },
+
+  {
+    id: 5,
+    slideName: `Longan`,
+    slideDesc: `
+    Dimocarpus longan, commonly known as the longan and dragon's eye, is a tropical tree species that produces edible fruit. It is one of the better-known tropical members of the soapberry family Sapindaceae, to which the lychee and rambutan also belong.
+    `,
+  },
+  {
+    id: 6,
+    slideName: `Guava`,
+    slideDesc: `
+    Guava is a common tropical fruit cultivated in many tropical and subtropical regions. The common guava Psidium guajava (lemon guava, apple guava) is a small tree in the myrtle family (Myrtaceae), native to Mexico, Central America,
+    `,
+  },
+  {
+    id: 7,
+    slideName: `Mango`,
+    slideDesc: `
+    A mango is an edible stone fruit produced by the tropical tree Mangifera indica. It is believed to have originated between northwestern Myanmar, Bangladesh, and northeastern India. M. indica has been cultivated in South and Southeast Asia
+    `,
+  },
+  {
+    id: 8,
+    slideName: `Papaya`,
+    slideDesc: `
+    Carica papaya is the scientific name of the orange and green fruit known more commonly as papaya. It tastes sweet and has a soft texture that many find appealing. 
+    `,
+  },
+];
+
+const dots = [
+  { id: 1, dotName: 'Passion fruit' },
+  { id: 2, dotName: 'Rambutan' },
+  { id: 3, dotName: 'Mangosteen' },
+  { id: 4, dotName: 'Cherimoya' },
+  { id: 5, dotName: 'Lychee' },
+  { id: 5, dotName: 'Longan' },
+  { id: 5, dotName: 'Guava' },
+  { id: 5, dotName: 'Mango' },
+  { id: 5, dotName: 'Papaya' },
 ];
 
 const Slider = () => {
@@ -42,96 +130,16 @@ const Slider = () => {
         <div className="slider__inner">
           <h2 className="slider__title">How to consume exotic fruits?</h2>
           <div className="slider__box">
-            <div className="slider__item active">
-              <h3 className="slider__item-name">{slides[0].slideName}</h3>
-              <p className="slider__item-text">{slides[0].slideDesc}</p>
-            </div>
-            <div className="slider__item">
-              <h3 className="slider__item-name">Rambutan</h3>
-              <p className="slider__item-text">
-                This fruit has an exotic appearance.
-                <img
-                  className="slider__item-img"
-                  src="./images/slider/slide_2.png"
-                  alt="rambutan-fruit"
-                />
-                Small fruits have a sweet, very pleasant taste. Under the peel with soft curved
-                thorns, a dense pulp of a jelly-like consistency is hidden. There is a large bone
-                inside it. Be careful when biting the flesh! It is better to use a knife to extract
-                the inedible bone.
-              </p>
-            </div>
-            <div className="slider__item">
-              <h3 className="slider__item-name">Mangosteen</h3>
-              <p className="slider__item-text">
-                The brown-violet skin of the passionfruit
-                <img
-                  className="slider__item-img"
-                  src="./images/slider/slide_1.png"
-                  alt="passion-fruit"
-                />
-                is quite dense - the fruit is well stored. The riper the fruit, the more pronounced
-                its aroma. Passion fruit is eaten fresh or in the form of juice, jelly. The fruit is
-                cut and the pulp with a large number of small seeds is taken out with a spoon. It
-                has a sweet and sour, very pleasant, refreshing taste. The dense peel and the white
-                part adjacent to it are not eaten.
-              </p>
-            </div>
-            <div className="slider__item">
-              <h3 className="slider__item-name">Cherimoya</h3>
-              <p className="slider__item-text">
-                This fruit has an exotic appearance.
-                <img
-                  className="slider__item-img"
-                  src="./images/slider/slide_2.png"
-                  alt="rambutan-fruit"
-                />
-                Small fruits have a sweet, very pleasant taste. Under the peel with soft curved
-                thorns, a dense pulp of a jelly-like consistency is hidden. There is a large bone
-                inside it. Be careful when biting the flesh! It is better to use a knife to extract
-                the inedible bone.
-              </p>
-            </div>
+            {slides.map((slide) => (
+              <Slide slide={slide} />
+            ))}
           </div>
           <div className="slider__choose">
             <div className="slider__choose-line"></div>
             <div className="slider__choose-dots">
-              <div className="slider__choose-dot active">
-                <h4 className="slider__choose-name">Passion fruit</h4>
-                <div className="slider__choose-circle"></div>
-              </div>
-              <div className="slider__choose-dot">
-                <h4 className="slider__choose-name">Rambutan</h4>
-                <div className="slider__choose-circle"></div>
-              </div>
-              <div className="slider__choose-dot">
-                <h4 className="slider__choose-name">Mangosteen</h4>
-                <div className="slider__choose-circle"></div>
-              </div>
-              <div className="slider__choose-dot">
-                <h4 className="slider__choose-name">Cherimoya</h4>
-                <div className="slider__choose-circle"></div>
-              </div>
-              <div className="slider__choose-dot">
-                <h4 className="slider__choose-name">Lychee</h4>
-                <div className="slider__choose-circle"></div>
-              </div>
-              <div className="slider__choose-dot">
-                <h4 className="slider__choose-name">Longan</h4>
-                <div className="slider__choose-circle"></div>
-              </div>
-              <div className="slider__choose-dot">
-                <h4 className="slider__choose-name">Guava</h4>
-                <div className="slider__choose-circle"></div>
-              </div>
-              <div className="slider__choose-dot">
-                <h4 className="slider__choose-name">Mango</h4>
-                <div className="slider__choose-circle"></div>
-              </div>
-              <div className="slider__choose-dot">
-                <h4 className="slider__choose-name">Papaya</h4>
-                <div className="slider__choose-circle"></div>
-              </div>
+              {dots.map((dot) => (
+                <SlideDot key={dot.id} dot={dot} />
+              ))}
             </div>
           </div>
         </div>
