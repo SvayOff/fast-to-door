@@ -1,6 +1,8 @@
 import React from 'react';
-import Slide from '../Slide';
-import SlideDot from '../SlideDot';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 const slides = [
   {
@@ -9,7 +11,7 @@ const slides = [
     slideDesc: `
       The brown-violet skin of the passionfruit  
       <img 
-        className="slider__item-img"
+        class="slider__item-img"
         src="./images/slider/slide_1.png"
         alt="passion-fruit" 
       />
@@ -27,7 +29,7 @@ const slides = [
     slideDesc: `
       This fruit has an exotic appearance.
       <img
-        className="slider__item-img"
+        class="slider__item-img"
         src="./images/slider/slide_2.png"
         alt="rambutan-fruit"
       />
@@ -39,12 +41,12 @@ const slides = [
   },
 
   {
-    id: 2,
+    id: 3,
     slideName: `Mangosteen`,
     slideDesc: `
       The brown-violet skin of the passionfruit
       <img
-        className="slider__item-img"
+        class="slider__item-img"
         src="./images/slider/slide_1.png"
         alt="passion-fruit"
       />
@@ -57,12 +59,12 @@ const slides = [
   },
 
   {
-    id: 3,
+    id: 4,
     slideName: `Cherimoya`,
     slideDesc: `
       This fruit has an exotic appearance.
       <img
-        className="slider__item-img"
+        class="slider__item-img"
         src="./images/slider/slide_2.png"
         alt="rambutan-fruit"
       />
@@ -74,53 +76,52 @@ const slides = [
   },
 
   {
-    id: 4,
+    id: 5,
     slideName: `Lychee`,
     slideDesc: `
-    An evergreen tree with a height of 10-30 meters (usually up to 15 meters), with a spreading crown. The leaves are complex, pinnate (rarely they are odd pinnate), consist of 4-8 elongated-ovate or lanceolate leaflets with a pointed end.
+    An evergreen tree with a height of 10-30 meters (usually up to 15 meters), with a spreading crown. The leaves are complex, pinnate (rarely they are odd pinnate),
+    <img
+    class="slider__item-img"
+    src="./images/slider/slide_2.png"
+    alt="rambutan-fruit"
+  /> consist of 4-8 elongated-ovate or lanceolate leaflets with a pointed end.
     `,
   },
 
   {
-    id: 5,
+    id: 6,
     slideName: `Longan`,
     slideDesc: `
     Dimocarpus longan, commonly known as the longan and dragon's eye, is a tropical tree species that produces edible fruit. It is one of the better-known tropical members of the soapberry family Sapindaceae, to which the lychee and rambutan also belong.
     `,
   },
   {
-    id: 6,
+    id: 7,
     slideName: `Guava`,
     slideDesc: `
     Guava is a common tropical fruit cultivated in many tropical and subtropical regions. The common guava Psidium guajava (lemon guava, apple guava) is a small tree in the myrtle family (Myrtaceae), native to Mexico, Central America,
     `,
   },
   {
-    id: 7,
+    id: 8,
     slideName: `Mango`,
     slideDesc: `
     A mango is an edible stone fruit produced by the tropical tree Mangifera indica. It is believed to have originated between northwestern Myanmar, Bangladesh, and northeastern India. M. indica has been cultivated in South and Southeast Asia
     `,
   },
   {
-    id: 8,
+    id: 9,
     slideName: `Papaya`,
     slideDesc: `
     Carica papaya is the scientific name of the orange and green fruit known more commonly as papaya. It tastes sweet and has a soft texture that many find appealing. 
     `,
   },
-];
-
-const dots = [
-  { id: 1, dotName: 'Passion fruit' },
-  { id: 2, dotName: 'Rambutan' },
-  { id: 3, dotName: 'Mangosteen' },
-  { id: 4, dotName: 'Cherimoya' },
-  { id: 5, dotName: 'Lychee' },
-  { id: 5, dotName: 'Longan' },
-  { id: 5, dotName: 'Guava' },
-  { id: 5, dotName: 'Mango' },
-  { id: 5, dotName: 'Papaya' },
+  {
+    id: 10,
+    slideName: ``,
+    slideDesc: `
+    `,
+  },
 ];
 
 const Slider = () => {
@@ -129,18 +130,42 @@ const Slider = () => {
       <div className="container">
         <div className="slider__inner">
           <h2 className="slider__title">How to consume exotic fruits?</h2>
-          <div className="slider__box">
+          <Swiper
+            slidesPerView={'auto'}
+            spaceBetween={50}
+            centeredSlides={false}
+            grabCursor={true}
+            modules={[Pagination]}
+            slidesPerGroupAuto={true}
+            pagination={{
+              clickable: true,
+              type: 'bullets',
+              bulletClass: 'slider__choose-dot',
+              bulletActiveClass: 'active',
+              renderBullet: function (index) {
+                return `
+                  <div class="slider__choose-dot">
+                      <h4 class="slider__choose-name">${slides[index].slideName}</h4>
+                      <div class="slider__choose-circle">"${index + 1}"</div>
+                  </div>
+                  `;
+              },
+            }}
+            className="slider__box">
             {slides.map((slide) => (
-              <Slide slide={slide} />
+              <SwiperSlide>
+                <div className="slider__item" key={slide.id}>
+                  <h3 className="slider__item-name">{slide.slideName}</h3>
+                  <p
+                    className="slider__item-text"
+                    dangerouslySetInnerHTML={{ __html: slide.slideDesc }}
+                  />
+                </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
           <div className="slider__choose">
             <div className="slider__choose-line"></div>
-            <div className="slider__choose-dots">
-              {dots.map((dot) => (
-                <SlideDot key={dot.id} dot={dot} />
-              ))}
-            </div>
           </div>
         </div>
       </div>

@@ -249,36 +249,33 @@
   }
   &__box {
     display: -webkit-box;
+    overflow: inherit;
   }
-  &__item {
-    opacity: 0.2;
+  .swiper-slide {
+    opacity: 0.5;
     margin-bottom: 90px;
-    &.active {
+    &.swiper-slide-active {
       opacity: 1;
-      margin-right: 50px;
-    }
-    & + & {
-      margin-left: 50px;
     }
     max-width: 600px;
     width: 100%;
-    &-name {
+    .slider__item-name {
       color: $light;
       font-size: 32px;
       line-height: 39px;
       @include f500;
+      margin-bottom: 30px;
     }
-    &-text {
+    .slider__item-text {
       font-size: 20px;
       line-height: 188%;
       color: $light;
     }
-    &-img {
+    .slider__item-img {
       transform: translateY(23px);
       margin-top: -33px;
     }
   }
-
   &__choose {
     width: 100%;
     &-line {
@@ -298,6 +295,7 @@
       text-align: center;
       cursor: pointer;
       display: inline-block;
+      font-size: 0;
       &:hover {
         .slider__choose-name {
           color: $light;
@@ -369,6 +367,11 @@
       }
     }
   }
+}
+.swiper-pagination {
+  display: flex;
+  justify-content: space-around;
+  transform: translateY(107px);
 }
 
 // Dialog
