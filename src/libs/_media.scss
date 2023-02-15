@@ -269,6 +269,26 @@
   .products__items {
     grid-template-columns: repeat(2, 1fr);
   }
+  .products__top {
+    flex-direction: column;
+    margin-bottom: 50px;
+    padding: 12px 10px;
+    font-size: 16px;
+    margin: 0 auto 50px;
+  }
+  .products__title {
+    font-size: 32px;
+    margin-bottom: 30px;
+  }
+  .products__sort-title {
+    margin-bottom: 30px;
+  }
+  .products__input {
+    margin-left: 50%;
+  }
+  .products__item {
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 768px) {
@@ -351,26 +371,7 @@
   .dialog__message {
     font-size: 18px;
   }
-  .products__title {
-    font-size: 32px;
-    margin-bottom: 30px;
-  }
-  .products__top {
-    flex-direction: column;
-    margin-bottom: 50px;
-    padding: 12px 10px;
-    font-size: 16px;
-    margin: 0 auto 50px;
-  }
-  .products__sort-title {
-    margin-bottom: 30px;
-  }
-  .products__input {
-    margin-left: 50%;
-  }
-  .products__item {
-    margin: 0 auto;
-  }
+
   .gallery__title {
     font-size: 32px;
     margin-bottom: 50px;
@@ -633,6 +634,57 @@
   }
   .cart__product-fruit {
     max-width: 110px;
+  }
+  .about__swipes {
+    font-size: 11px;
+    &-left::before {
+      left: 0px;
+      top: -4px;
+      font-size: 18px;
+    }
+    &-right::before {
+      right: 0px;
+      top: -3px;
+      font-size: 18px;
+    }
+  }
+  .about__swipes-text {
+    font-size: 13px;
+  }
+  @keyframes moveArrows {
+    0% {
+      margin: 0 20px;
+    }
+    50% {
+      margin: 0 30px;
+    }
+    100% {
+      margin: 0 20px;
+    }
+  }
+  @keyframes arrowLeft {
+    0% {
+      left: 5px;
+      transform: rotateZ(180deg);
+    }
+    50% {
+      left: 0px;
+    }
+    100% {
+      left: 5px;
+      transform: rotateZ(180deg);
+    }
+  }
+  @keyframes arrowRight {
+    0% {
+      right: 5px;
+    }
+    50% {
+      right: 0px;
+    }
+    100% {
+      right: 3px;
+    }
   }
 }
 
