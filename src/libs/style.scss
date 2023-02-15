@@ -254,6 +254,7 @@
   .swiper-slide {
     opacity: 0.5;
     margin-bottom: 90px;
+    transition: opacity 0.8s ease;
     &.swiper-slide-active {
       opacity: 1;
     }
@@ -1210,9 +1211,8 @@
     }
   }
   &__products {
-    max-width: 830px;
+    max-width: 930px;
     width: 100%;
-    margin-right: 40px;
     &-box {
       display: grid;
       gap: 35px;
@@ -1231,7 +1231,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     min-width: 287px;
-    // width: 100%;
     height: auto;
     z-index: 3;
     &::before {

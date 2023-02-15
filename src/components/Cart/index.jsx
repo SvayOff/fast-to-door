@@ -1,13 +1,30 @@
 import React from 'react';
 import CartProduct from '../CartProduct';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCartActiveClass } from '../../redux/slices/cartSlice';
+import {
+  setCartProducts,
+  calcTotalCartPrice,
+  setCartActiveClass,
+} from '../../redux/slices/cartSlice';
 
 const Cart = () => {
   const dispatch = useDispatch();
   const totalCartPrice = useSelector((state) => state.cartSlice.totalCartPrice);
   const cartProducts = useSelector((state) => state.cartSlice.cartProducts);
   const cartActiveClass = useSelector((state) => state.cartSlice.cartActiveClass);
+
+  React.useEffect(() => {
+    const cartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+
+    if (cartProducts) {
+      dispatch(setCartProducts([...cartProducts]));
+      dispatch(calcTotalCartPrice());
+    }
+  }, []);
+
+  React.useEffect(() => {
+    localStorage.setItem('cartProducts', JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
   return (
     <div className={cartActiveClass === 'active' ? 'cart active' : 'cart'}>
