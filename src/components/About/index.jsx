@@ -1,4 +1,6 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setActiveHistory } from '../../redux/slices/sliderSlice';
 
 const history = [
   {
@@ -245,7 +247,8 @@ const adaptiveHistory = [
 ];
 
 const About = () => {
-  const [activeHistory, setActiveHistory] = React.useState(0);
+  const dispatch = useDispatch();
+  const activeHistory = useSelector((state) => state.sliderSlice.activeHistory);
 
   return (
     <div className="about">
@@ -276,7 +279,7 @@ const About = () => {
                 <span
                   className={activeHistory === index ? 'active' : ''}
                   key={item.id}
-                  onClick={() => setActiveHistory(index)}>
+                  onClick={() => dispatch(setActiveHistory(index))}>
                   {item.year}
                 </span>
               ))}

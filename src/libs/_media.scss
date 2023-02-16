@@ -191,6 +191,9 @@
   .swiper-wrapper {
     margin-bottom: 50px;
   }
+  .about__swipes {
+    display: flex;
+  }
   .swiper-pagination {
     display: grid;
     gap: 20px;
