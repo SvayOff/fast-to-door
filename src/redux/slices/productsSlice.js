@@ -4,6 +4,7 @@ const initialState = {
   products: [],
   cards: [],
   loadingSkeleton: true,
+  menuActiveClass: '',
 }
 
 const productsSlice = createSlice({
@@ -20,10 +21,14 @@ const productsSlice = createSlice({
 
     setLoadingSkeleton: (state, action) => {
       state.loadingSkeleton = action.payload;
+    },
+
+    setMenuActiveClass: (state, action) => {
+      state.menuActiveClass = action.payload;
     }
   }
 });
 
 
-export const { setProducts, setCards, setLoadingSkeleton } = productsSlice.actions;
+export const { setProducts, setCards, setLoadingSkeleton, setMenuActiveClass } = productsSlice.actions;
 export default productsSlice.reducer;

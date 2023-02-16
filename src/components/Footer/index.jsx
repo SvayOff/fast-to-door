@@ -1,5 +1,4 @@
-import styles from '../../libs/style.scss';
-
+import { links } from '../Header';
 const Footer = () => {
   return (
     <footer className="footer">
@@ -54,24 +53,11 @@ const Footer = () => {
             />
           </svg>
           <ul className="footer__menu">
-            <li>
-              <a href="#howtoeat">How to eat?</a>
-            </li>
-            <li>
-              <a href="#products">Products</a>
-            </li>
-            <li>
-              <a href="#gallery">Gallery</a>
-            </li>
-            <li>
-              <a href="#application">Application</a>
-            </li>
-            <li>
-              <a href="#about">About Us</a>
-            </li>
-            <li>
-              <a href="#contacts">Contacts</a>
-            </li>
+            {links.map((link) => (
+              <li>
+                <a href={link.linkHref}>{link.linkName}</a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

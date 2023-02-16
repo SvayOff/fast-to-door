@@ -2,18 +2,45 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCartActiveClass } from '../../redux/slices/cartSlice';
+import { setMenuActiveClass } from '../../redux/slices/productsSlice';
+
+export const links = [
+  {
+    linkName: 'How to eat?',
+    linkHref: '#howtoeat',
+  },
+  {
+    linkName: 'Products',
+    linkHref: '#products',
+  },
+  {
+    linkName: 'Gallery',
+    linkHref: '#gallery',
+  },
+  {
+    linkName: 'Application',
+    linkHref: '#application',
+  },
+  {
+    linkName: 'About Us',
+    linkHref: '#about',
+  },
+  {
+    linkName: 'Contacts',
+    linkHref: '#contacts',
+  },
+];
 
 const Header = () => {
   const dispatch = useDispatch();
   const cartProducts = useSelector((state) => state.cartSlice.cartProducts);
-
-  const [activeClass, setActiveClass] = React.useState('');
+  const menuActiveClass = useSelector((state) => state.productsSlice.menuActiveClass);
 
   const toggleActiveClass = () => {
-    if (activeClass) {
-      return setActiveClass('');
+    if (menuActiveClass) {
+      return dispatch(setMenuActiveClass(''));
     } else {
-      return setActiveClass('active');
+      return dispatch(setMenuActiveClass('active'));
     }
   };
 
@@ -73,31 +100,20 @@ const Header = () => {
 
           <nav
             className={
-              activeClass === 'active' ? 'header__navigation active' : 'header__navigation'
+              menuActiveClass === 'active' ? 'header__navigation active' : 'header__navigation'
             }>
             <div className="header__navigation-background">
               <ul className="header__navigation-list">
-                <li>
-                  <a href="#howtoeat">How to eat?</a>
-                </li>
-                <li>
-                  <a href="#products">Products</a>
-                </li>
-                <li>
-                  <a href="#gallery">Gallery</a>
-                </li>
-                <li>
-                  <a href="#application">Application</a>
-                </li>
-                <li>
-                  <a href="#about">About Us</a>
-                </li>
-                <li>
-                  <a href="#contacts">Contacts</a>
-                </li>
+                {links.map((link) => (
+                  <li>
+                    <a onClick={() => dispatch(setMenuActiveClass())} href={link.linkHref}>
+                      {link.linkName}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </div>
-            <div className="header__navigation-burger" onClick={() => toggleActiveClass()}>
+            <div className="header__navigation-burger" onClick={() => toggleActiveClass('active')}>
               <span></span>
             </div>
           </nav>
