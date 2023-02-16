@@ -55,22 +55,22 @@ const Footer = () => {
           </svg>
           <ul className="footer__menu">
             <li>
-              <a href="#">How to eat?</a>
+              <a href="#howtoeat">How to eat?</a>
             </li>
             <li>
-              <a href="#">Products</a>
+              <a href="#products">Products</a>
             </li>
             <li>
-              <a href="#">Gallery</a>
+              <a href="#gallery">Gallery</a>
             </li>
             <li>
-              <a href="#">Application</a>
+              <a href="#application">Application</a>
             </li>
             <li>
-              <a href="#">About Us</a>
+              <a href="#about">About Us</a>
             </li>
             <li>
-              <a href="#">Contacts</a>
+              <a href="#contacts">Contacts</a>
             </li>
           </ul>
         </div>

@@ -51,7 +51,9 @@ const Products = () => {
       <div className="container">
         <div className="products__inner">
           <div className="products__top">
-            <h2 className="products__title">Our products</h2>
+            <h2 id="products" className="products__title">
+              Our products
+            </h2>
             <Sort />
             <div className="products__search">
               <input

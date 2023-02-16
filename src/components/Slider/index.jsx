@@ -129,7 +129,9 @@ const Slider = () => {
     <section className="slider">
       <div className="container">
         <div className="slider__inner">
-          <h2 className="slider__title">How to consume exotic fruits?</h2>
+          <h2 id="howtoeat" className="slider__title">
+            How to consume exotic fruits?
+          </h2>
           <Swiper
             slidesPerView={'auto'}
             spaceBetween={50}

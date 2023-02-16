@@ -254,7 +254,9 @@ const About = () => {
     <div className="about">
       <div className="container">
         <div className="about__inner">
-          <div className="about__title">About Us</div>
+          <div id="about" className="about__title">
+            About Us
+          </div>
           <div className="about__swipes">
             <div className="about__swipes-left">Left</div>
             <span className="about__swipes-text">Swipe and Click</span>

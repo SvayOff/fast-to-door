@@ -3,7 +3,9 @@ const Application = () => {
     <div className="application">
       <div className="container">
         <div className="application__inner">
-          <div className="application__title">Application</div>
+          <div id="application" className="application__title">
+            Application
+          </div>
           <div className="application__desc">
             Fast shopping, instant support and free tickets for two to Thailand. Everything is in
             our application.

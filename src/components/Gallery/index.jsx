@@ -7,7 +7,9 @@ const Gallery = () => {
     <div className="gallery">
       <div className="container">
         <div className="gallery__inner">
-          <div className="gallery__title">Gallery</div>
+          <div id="gallery" className="gallery__title">
+            Gallery
+          </div>
           <div className="gallery__items">
             {cards.map((card) => {
               return <Card key={card.id} card={card} />;
