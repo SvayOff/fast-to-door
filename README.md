@@ -1,5 +1,5 @@
 # Fast To Door - Delivery of exotic fruits
-[Go to Project](https://svayoff.github.io/SmokyMood/)
+[Go to Project](https://fast-to-door.netlify.app/)
 
 ## Skills used:
 - HTML5;
