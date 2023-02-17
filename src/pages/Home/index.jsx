@@ -31,6 +31,19 @@ const Home = () => {
   const sortBy = `products?sortBy=${sortProperty.replace('-', '')}`;
   const order = `&order=${sortProperty.includes('-') ? 'asc' : 'desc'}`;
 
+  const [scrollToTop, setScrollToTop] = React.useState(0);
+
+  const scrollHandleTop = () => {
+    setScrollToTop(document.body.scrollTop);
+  };
+
+  const goToTop = () => {
+    document.body.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   const fetchProduct = () => {
     dispatch(setLoadingSkeleton(true));
 
@@ -87,6 +100,12 @@ const Home = () => {
       .then((cards) => dispatch(setCards(cards)));
   }, []);
 
+  React.useEffect(() => {
+    document.body.addEventListener('scroll', scrollHandleTop);
+
+    return () => document.body.removeEventListener('scroll', scrollHandleTop);
+  }, []);
+
   return (
     <div className="home">
       <div className="content">
@@ -112,7 +131,9 @@ const Home = () => {
         <Cart />
       </div>
       <div className={isAddedToCart ? 'purchased show' : 'purchased hidden'}>Added to Cart</div>
-      <div className="home__top"></div>
+      <button
+        onClick={goToTop}
+        className={scrollToTop > 300 ? 'home__top active' : 'home__top'}></button>
       <Footer />
     </div>
   );
