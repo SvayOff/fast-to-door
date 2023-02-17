@@ -18,3 +18,4 @@
 - skeletons and using debounce;
 - added and configured complex sliders and tabs;
 - saving search options in a string;
+- button to top;
