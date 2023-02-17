@@ -155,8 +155,8 @@ const Slider = () => {
             }}
             className="slider__box">
             {slides.map((slide) => (
-              <SwiperSlide>
-                <div className="slider__item" key={slide.id}>
+              <SwiperSlide key={slide.id}>
+                <div className="slider__item">
                   <h3 className="slider__item-name">{slide.slideName}</h3>
                   <p
                     className="slider__item-text"

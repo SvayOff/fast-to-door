@@ -112,6 +112,7 @@ const Home = () => {
         <Cart />
       </div>
       <div className={isAddedToCart ? 'purchased show' : 'purchased hidden'}>Added to Cart</div>
+      <div className="home__top"></div>
       <Footer />
     </div>
   );

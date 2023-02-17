@@ -6,26 +6,32 @@ import { setMenuActiveClass } from '../../redux/slices/productsSlice';
 
 export const links = [
   {
+    id: 1,
     linkName: 'How to eat?',
     linkHref: '#howtoeat',
   },
   {
+    id: 2,
     linkName: 'Products',
     linkHref: '#products',
   },
   {
+    id: 3,
     linkName: 'Gallery',
     linkHref: '#gallery',
   },
   {
+    id: 4,
     linkName: 'Application',
     linkHref: '#application',
   },
   {
+    id: 5,
     linkName: 'About Us',
     linkHref: '#about',
   },
   {
+    id: 6,
     linkName: 'Contacts',
     linkHref: '#contacts',
   },
@@ -105,10 +111,8 @@ const Header = () => {
             <div className="header__navigation-background">
               <ul className="header__navigation-list">
                 {links.map((link) => (
-                  <li>
-                    <a onClick={() => dispatch(setMenuActiveClass())} href={link.linkHref}>
-                      {link.linkName}
-                    </a>
+                  <li key={link.id} onClick={() => dispatch(setMenuActiveClass())}>
+                    <a href={link.linkHref}>{link.linkName}</a>
                   </li>
                 ))}
               </ul>

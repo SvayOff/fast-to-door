@@ -63,6 +63,12 @@
   }
 }
 @media (max-width: 1024px) {
+  .home {
+    &__top {
+      bottom: 20px;
+      left: calc(50% - 25px);
+    }
+  }
   .header__inner {
     padding: 30px 0 50px;
   }

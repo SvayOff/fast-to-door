@@ -1,4 +1,5 @@
 import { links } from '../Header';
+
 const Footer = () => {
   return (
     <footer className="footer">
@@ -54,7 +55,7 @@ const Footer = () => {
           </svg>
           <ul className="footer__menu">
             {links.map((link) => (
-              <li>
+              <li key={link.linkName}>
                 <a href={link.linkHref}>{link.linkName}</a>
               </li>
             ))}

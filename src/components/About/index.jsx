@@ -267,6 +267,7 @@ const About = () => {
               .filter((item) => item.id !== history[history.length - 1].id)
               .map((item) => (
                 <div
+                  key={item.id}
                   className="about__content-block"
                   dangerouslySetInnerHTML={{ __html: item.html }}></div>
               ))}
