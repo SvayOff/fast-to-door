@@ -1280,15 +1280,12 @@
   top: 0;
   bottom: 0;
   right: -100%;
-  z-index: 20;
   height: auto;
   width: 100%;
-  height: auto;
   padding-top: 70px;
   background-color: $dark;
   opacity: 0;
   overflow: hidden;
-  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   transition: all 0.5s ease;
   &.active {
