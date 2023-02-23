@@ -2,6 +2,9 @@
 @import "../libs/fonts";
 @import "../libs/variables";
 @import "../libs/global";
+.wrapper {
+  overflow-y: hidden;
+}
 .content {
   position: relative;
 }
@@ -17,6 +20,7 @@
   &__top {
     display: block;
     position: fixed;
+    overflow: hidden;
     z-index: 20;
     left: 50px;
     bottom: 50px;
@@ -1279,7 +1283,7 @@
   top: 0;
   bottom: 0;
   right: -100%;
-  z-index: 10;
+  z-index: 20;
   height: auto;
   width: 100%;
   height: auto;
@@ -1295,6 +1299,7 @@
     right: 0%;
     opacity: 1;
     overflow: auto;
+    z-index: 40;
   }
   &__background {
     background-image: url(../../public/images/backgrounds/Background_6.png);

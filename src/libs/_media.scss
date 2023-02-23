@@ -92,7 +92,10 @@
       opacity: 0;
     }
     &.active {
+      margin-right: 35px;
       .header__navigation-burger {
+        position: fixed;
+        top: 35px;
         border-color: $light;
         span {
           background-color: transparent;
